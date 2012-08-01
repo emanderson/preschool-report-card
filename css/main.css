@@ -95,6 +95,12 @@ table.reportSection tr.titleHeader {
     text-decoration: underline;
 }
 
+table.reportSection tr.titleHeader th {
+    text-align: left;
+    border: 2px solid black;
+    width: 11.7cm;
+}
+
 table.reportSection td.itemName {
     width: 10.3cm;
 }

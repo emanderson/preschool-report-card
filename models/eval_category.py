@@ -1,3 +1,5 @@
+from google.appengine.ext import db
+
 from models.base import BaseModel
 
 class EvalCategory(BaseModel):
@@ -10,3 +12,8 @@ class EvalCategory(BaseModel):
         category = EvalCategory(parent=self.report_key())
         category.name = name
         return category.put()
+    
+    def items(self):
+        from models.eval_item import EvalItem
+        items = EvalItem.gql("WHERE category = :1", self).fetch(1)
+        return items

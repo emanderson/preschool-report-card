@@ -8,5 +8,21 @@
 {% block body_content %}
   <h1>Edit Report Card</h1>
   
+  {% for category in categories %}
+    <table class="reportSection">
+      <tr class="titleHeader">
+        <th colspan=2>{{ category.name }}</td>
+      </tr>
+      
+      {% for item in category.items() %}
+        <tr>
+          <td class="itemName">{{ item.name }}</td>
+          <td><input type="text" name="something"></input></td>
+        </tr>
+      {% endfor %}
+    </table>
+    <a href="/category/{{ category.key().id() }}/item/add_form">Add Item</a>
+  {% endfor %}
+  
   <a class="formPopper" href="/category/add_form">Add A Category</a>
 {% endblock %}

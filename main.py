@@ -20,12 +20,19 @@ import webapp2
 
 from handlers.form_edit_handler import FormEditHandler
 from handlers.category_add_form_handler import CategoryAddFormHandler
+from handlers.category_add_handler import CategoryAddHandler
+from handlers.item_add_form_handler import ItemAddFormHandler
+from handlers.item_add_handler import ItemAddHandler
 from utils.jinja_env import JinjaEnv
 
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 jinja_environment.globals.update({'uri_for': webapp2.uri_for})
 JinjaEnv.set(jinja_environment)
 
-app = webapp2.WSGIApplication([('/form/edit', FormEditHandler),
-                               ('/category/add_form', CategoryAddFormHandler)],
-                              debug=True)
+app = webapp2.WSGIApplication([
+    webapp2.Route(r'/form/edit', handler=FormEditHandler, name='form-edit'),
+    webapp2.Route(r'/category/add_form', handler=CategoryAddFormHandler),
+    webapp2.Route(r'/category/add', handler=CategoryAddHandler),
+    webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemAddFormHandler),
+    webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemAddHandler)
+], debug=True)
