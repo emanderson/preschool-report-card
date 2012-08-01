@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    {% block extra_css %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    {% block body_content %}
+    {% endblock %}
+    
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"> </script>
+    <script type="text/javascript" src="/js/main.js"> </script>
+  </body>
+</html>
