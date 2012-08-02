@@ -32,6 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	padding: 0.5cm;
 }
 
 ol, ul {
@@ -75,15 +76,15 @@ p input {
     width: 10cm;
 }
 
-div.half {
+a.addItem {
     width: 11.7cm;
-    height: 17cm;
-    float: left;
+    text-align: right;
+    font-size: 0.3cm;
 }
 
 table.reportSection {
     border-collapse: collapse;
-    margin: 0.5cm;
+    margin-top: 0.25cm;
 }
 
 table.reportSection td {
@@ -117,6 +118,7 @@ div.formPopup {
     width: 60%;
     top: 20%;
     border: 1px solid gray;
+    background: white;
 }
 
 div.formPopup form {

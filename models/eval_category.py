@@ -15,5 +15,5 @@ class EvalCategory(BaseModel):
     
     def items(self):
         from models.eval_item import EvalItem
-        items = EvalItem.gql("WHERE category = :1", self).fetch(1)
+        items = EvalItem.gql("WHERE category = :1", self).fetch(100)
         return items
