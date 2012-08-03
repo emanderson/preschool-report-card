@@ -9,4 +9,4 @@ class ItemEditHandler(webapp2.RequestHandler):
         ei = EvalItem.find_by_id(int(item_id))
         ei.name = self.request.get('name')
         ei.save()
-        return webapp2.redirect_to('form-edit')
+        return webapp2.redirect_to('card-edit', card_id=ei.category.card.key().id())

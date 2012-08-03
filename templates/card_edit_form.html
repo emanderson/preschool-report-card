@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block body_content %}
-  <h1>Edit Report Card</h1>
+  <h1>Edit {{ card.name }}</h1>
   
-  {% for category in categories %}
+  {% for category in card.categories() %}
     <div>
       <table class="reportSection">
         <tr class="titleHeader">
@@ -32,7 +32,7 @@
     </div>
   {% endfor %}
   
-  <a class="formPopper" href="/category/add_form">Add A Category</a>
+  <a class="formPopper" href="/card/{{ card.key().id() }}/category/add_form">Add A Category</a>
   
-  <a href="/form/preview">Preview the Report Card</a>
+  <a href="/card/{{ card.key().id() }}/preview">Preview the Report Card</a>
 {% endblock %}

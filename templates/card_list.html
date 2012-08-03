@@ -1,0 +1,18 @@
+{% extends "templates/shared/base.html" %}
+
+{% block title %}Report Cards{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block body_content %}
+  <h1>Report Cards</h1>
+  
+  <ul>
+    {% for card in cards %}
+      <li>{{ card.name }} - <a href="/card/{{ card.key().id() }}/edit">Edit</a></li>
+    {% endfor %}
+  </ul>
+  
+  <a class="formPopper" href="/card/add_form">Add A New Card</a>
+{% endblock %}

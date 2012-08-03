@@ -5,6 +5,7 @@ from models.base import BaseModel
 class AppUser(BaseModel):
     email = db.StringProperty()
     user_id = db.StringProperty()
+    is_admin = db.BooleanProperty(default=False)
     first_access = db.DateTimeProperty(auto_now_add=True)
     latest_access = db.DateTimeProperty(auto_now=True)
     
