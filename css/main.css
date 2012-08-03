@@ -61,6 +61,11 @@ body {
     font-size: 0.4cm;
 }
 
+header {
+    text-align: right;
+    font-size: 0.3cm;
+}
+
 h1 {
     font-size: 0.6cm;
 }
