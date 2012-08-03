@@ -12,14 +12,21 @@
     <div>
       <table class="reportSection">
         <tr class="titleHeader">
-          <th colspan=2>{{ category.name }}</td>
+          <th class="categoryName">{{ category.name }}</th>
+          <th>
+            <form action="/category/{{ category.key().id() }}/edit_form" method="GET">
+              <formset>
+                <input class="formPopperButton" type="submit" name="edit" value="Edit" />
+              </formset>
+            </form>
+          </th>
         </tr>
       
         {% for item in category.items() %}
           <tr>
             <td class="itemName">{{ item.name }}</td>
             <td>
-              <form action="/item/{{ item.key().id() }}/edit_form" edit_form" method="GET">
+              <form action="/item/{{ item.key().id() }}/edit_form" method="GET">
                 <formset>
                   <input class="formPopperButton" type="submit" name="edit" value="Edit" />
                 </formset>

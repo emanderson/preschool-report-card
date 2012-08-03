@@ -25,6 +25,8 @@ from handlers.card_edit_handler import CardEditHandler
 from handlers.card_preview_handler import CardPreviewHandler
 from handlers.category_add_form_handler import CategoryAddFormHandler
 from handlers.category_add_handler import CategoryAddHandler
+from handlers.category_edit_form_handler import CategoryEditFormHandler
+from handlers.category_edit_handler import CategoryEditHandler
 from handlers.item_add_form_handler import ItemAddFormHandler
 from handlers.item_add_handler import ItemAddHandler
 from handlers.item_edit_form_handler import ItemEditFormHandler
@@ -46,6 +48,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/category/add', handler=CategoryAddHandler),
     webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemEditFormHandler),
     webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemEditHandler),
+    webapp2.Route(r'/category/<category_id:\d+>/edit_form', handler=CategoryEditFormHandler),
+    webapp2.Route(r'/category/<category_id:\d+>/edit', handler=CategoryEditHandler),
     webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemAddFormHandler),
     webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemAddHandler)
 ], debug=True)
