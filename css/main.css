@@ -104,7 +104,7 @@ table.reportSection tr.titleHeader {
 table.reportSection tr.titleHeader th {
     text-align: left;
     border: 2px solid black;
-    background: gray;
+    font-size: 0.45cm;
 }
 
 table.reportSection tr.titleHeader th.categoryName {
