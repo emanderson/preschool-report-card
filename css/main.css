@@ -110,6 +110,8 @@ table.reportSection input {
     width: 1.3cm;
     border: none;
     text-align: center;
+    font-size: 0.4cm;
+    padding: 0;
 }
 
 div.formPopup {
