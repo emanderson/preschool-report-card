@@ -1,0 +1,29 @@
+{% extends "templates/shared/base.html" %}
+
+{% block title %}Edit Form{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block body_content %}
+  <h1>Report Card (SAMPLE)</h1>
+  
+  {% for category in categories %}
+    <div>
+      <table class="reportSection">
+        <tr class="titleHeader">
+          <th colspan=2>{{ category.name }}</td>
+        </tr>
+      
+        {% for item in category.items() %}
+          <tr>
+            <td class="itemName">{{ item.name }}</td>
+            <td><input type="text" name="item_{{ item.key().id() }}_score" value="5"/></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% endfor %}
+  
+  <a href="/form/edit">Edit the Report Card</a>
+{% endblock %}

@@ -19,6 +19,7 @@ import os
 import webapp2
 
 from handlers.form_edit_handler import FormEditHandler
+from handlers.form_preview_handler import FormPreviewHandler
 from handlers.category_add_form_handler import CategoryAddFormHandler
 from handlers.category_add_handler import CategoryAddHandler
 from handlers.item_add_form_handler import ItemAddFormHandler
@@ -33,6 +34,7 @@ JinjaEnv.set(jinja_environment)
 
 app = webapp2.WSGIApplication([
     webapp2.Route(r'/form/edit', handler=FormEditHandler, name='form-edit'),
+    webapp2.Route(r'/form/preview', handler=FormPreviewHandler, name='form-preview'),
     webapp2.Route(r'/category/add_form', handler=CategoryAddFormHandler),
     webapp2.Route(r'/category/add', handler=CategoryAddHandler),
     webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemEditFormHandler),
