@@ -5,7 +5,7 @@ from models.base import BaseModel
 
 class EvalCategory(BaseModel):
     name = db.StringProperty()
-    owner_user_id = db.StringProperty()
+    owner_user_id = db.ListProperty(str)
     created = db.DateTimeProperty(auto_now_add=True)
     modified = db.DateTimeProperty(auto_now=True)
     
@@ -13,7 +13,7 @@ class EvalCategory(BaseModel):
     def create(self, name):
         category = EvalCategory(parent=self.report_key())
         category.name = name
-        category.owner_user_id = users.get_current_user().user_id()
+        category.owner_user_id = [users.get_current_user().user_id()]
         return category.put()
     
     @classmethod

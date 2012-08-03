@@ -6,6 +6,9 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+    <header>
+      <a href="{{ logout_url() }}">Logout</a>
+    </header>
     {% block body_content %}
     {% endblock %}
     

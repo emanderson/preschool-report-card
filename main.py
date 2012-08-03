@@ -27,9 +27,10 @@ from handlers.item_add_handler import ItemAddHandler
 from handlers.item_edit_form_handler import ItemEditFormHandler
 from handlers.item_edit_handler import ItemEditHandler
 from utils.jinja_env import JinjaEnv
+from utils.auth import Auth
 
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
-jinja_environment.globals.update({'uri_for': webapp2.uri_for})
+jinja_environment.globals.update({'uri_for': webapp2.uri_for, 'logout_url': Auth.logout_url})
 JinjaEnv.set(jinja_environment)
 
 app = webapp2.WSGIApplication([
