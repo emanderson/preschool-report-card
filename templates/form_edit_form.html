@@ -18,7 +18,13 @@
         {% for item in category.items() %}
           <tr>
             <td class="itemName">{{ item.name }}</td>
-            <td><input type="text" name="something" disabled=disabled></input></td>
+            <td>
+              <form action="/item/{{ item.key().id() }}/edit_form" edit_form" method="GET">
+                <formset>
+                  <input class="formPopperButton" type="submit" name="edit" value="Edit" />
+                </formset>
+              </form>
+            </td>
           </tr>
         {% endfor %}
       </table>
