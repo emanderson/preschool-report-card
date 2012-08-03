@@ -2,6 +2,7 @@ from google.appengine.ext import db
 from google.appengine.api import users
 
 from models.base import BaseModel
+from models.app_user import AppUser
 
 class ReportCard(BaseModel):
     name = db.StringProperty()
@@ -20,7 +21,11 @@ class ReportCard(BaseModel):
     def list_by_user(self, user=None):
         if not user:
           user = users.get_current_user()
-        cards = self.gql("WHERE owner_user_id = :1", user.user_id()).fetch(100)
+        app_user = AppUser.for_user(user)
+        if app_user.is_admin:
+            cards = self.list()
+        else:
+            cards = self.gql("WHERE owner_user_id = :1", user.user_id()).fetch(100)
         return cards
     
     def categories(self):

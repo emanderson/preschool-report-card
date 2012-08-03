@@ -17,9 +17,13 @@ class AppUser(BaseModel):
         return app_user.put()
     
     @classmethod
-    def record_access(self, user):
+    def for_user(self, user):
         app_user = self.gql("WHERE user_id = :1", user.user_id()).fetch(1)
-        if app_user:
-            app_user[0].put()
+        if not app_user:
+            return self.create(user)
         else:
-            self.create(user)
+            return app_user[0]
+    
+    @classmethod
+    def record_access(self, user):
+        self.for_user(user).put()
