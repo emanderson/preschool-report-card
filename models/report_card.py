@@ -30,5 +30,5 @@ class ReportCard(BaseModel):
     
     def categories(self):
         from models.eval_category import EvalCategory
-        items = EvalCategory.gql("WHERE card = :1", self).fetch(100)
+        items = EvalCategory.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)
         return items
