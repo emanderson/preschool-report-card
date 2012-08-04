@@ -124,7 +124,7 @@ table.reportSection input {
 }
 
 div.formPopup {
-    position: absolute;
+    position: fixed;
     left: 20%;
     width: 60%;
     top: 20%;
