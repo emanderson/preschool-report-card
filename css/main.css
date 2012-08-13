@@ -95,6 +95,7 @@ table.reportSection {
 table.reportSection td {
     border: 2px solid black;
     width: 1.4cm;
+    padding: 0 0.1cm;
 }
 
 table.reportSection tr.titleHeader {
@@ -134,4 +135,12 @@ div.formPopup {
 
 div.formPopup form {
     margin: 0.2cm;
+}
+
+img.headerImage {
+    display: block;
+    width: 262px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
