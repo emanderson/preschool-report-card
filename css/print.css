@@ -1,0 +1,15 @@
+@media print {
+    table {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    table.reportSection td,
+    table.reportSection tr.titleHeader th {
+        border: 1px solid black;
+    }
+    
+    a {
+        display: none;
+    } 
+}

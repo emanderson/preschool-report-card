@@ -123,11 +123,6 @@ table.reportSection input {
     padding: 0;
 }
 
-table {
-    page-break-inside: avoid;
-    page-break-after: auto;
-}
-
 div.formPopup {
     position: fixed;
     left: 20%;
