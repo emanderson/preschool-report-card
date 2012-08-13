@@ -8,7 +8,16 @@
 {% block body_content %}
   <img class="headerImage" src="/images/gt_logo.gif" />
   
-  <h1>{{ card.name }} (SAMPLE)</h1>
+  <h1>{{ card.name }}</h1>
+  
+  <p class="textLine"><label for="text_1_value">Childʼs name</label> <input type="text" id="text_1_value" name="text_1_value" value="Bob Jones"/></p>
+  <p class="textLine"><label for="text_2_value">Teachers</label> <input type="text" id="text_2_value"name="text_2_value" value="Mrs. Anderson and Mrs. Someone"/></p>
+  <p class="textLine"><label for="text_3_value">Date</label> <input type="text" id="text_3_value"name="text_3_value" value="March 2013"/></p>
+  <p class="textLine"><label for="text_4_value">Age at time of report</label> <input type="text" id="text_4_value"name="text_4_value" value="5 years 1 month"/></p>
+  
+  <hr /> 
+<p>Evaluation  Key:
+5=Always        4=Mostly          3=Sometimes           2=Rarely        1=Never/Not interested</p>
   
   {% for category in card.categories() %}
     <div>
