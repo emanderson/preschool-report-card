@@ -55,7 +55,7 @@
           </tr>
         {% endfor %}
       </table>
-      <a class="addItem formPopper" href="/category/{{ category.key().id() }}/item/add_form">Add an item to {{ category.name }}</a>
+      <a name="cat{{ category.key().id() }}add" class="addItem formPopper" href="/category/{{ category.key().id() }}/item/add_form">Add an item to {{ category.name }}</a>
     </div>
   {% endfor %}
   
