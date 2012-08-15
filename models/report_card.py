@@ -28,6 +28,12 @@ class ReportCard(BaseModel):
             cards = self.gql("WHERE owner_user_id = :1", user.user_id()).fetch(100)
         return cards
     
+    def is_authorized(self, user=None):
+        if not user:
+          user = users.get_current_user()
+        app_user = AppUser.for_user(user)
+        return app_user.is_admin or user.user_id() in self.owner_user_id
+    
     def categories(self):
         from models.eval_category import EvalCategory
         items = EvalCategory.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)

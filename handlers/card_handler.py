@@ -23,9 +23,13 @@ class CardHandler(webapp2.RequestHandler):
     def edit(self, card_id):
         # TODO: handle this some other way
         AppUser.record_access(users.get_current_user())
-        template = JinjaEnv.get().get_template('templates/card_edit_form.html')
-        self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id))}))
+        card = ReportCard.find_by_id(int(card_id))
+        if card.is_authorized():
+            template = JinjaEnv.get().get_template('templates/card_edit_form.html')
+            self.response.out.write(template.render({'card': card}))
 
     def preview(self, card_id):
-        template = JinjaEnv.get().get_template('templates/card_preview.html')
-        self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id))}))
+        card = ReportCard.find_by_id(int(card_id))
+        if card.is_authorized():
+            template = JinjaEnv.get().get_template('templates/card_preview.html')
+            self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id))}))
