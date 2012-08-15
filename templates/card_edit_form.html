@@ -14,19 +14,19 @@
         <tr class="titleHeader">
           <th class="categoryName">{{ category.name }}</th>
           <th>
-            <form action="/category/{{ category.key().id() }}/edit_form" method="GET">
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/edit_form" method="GET">
               <formset>
-                <input class="formPopperButton" type="submit" name="edit" value="Edit" />
+                <input class="formPopperButton editButton" type="submit" name="edit" value="" />
               </formset>
             </form>
-            <form action="/category/{{ category.key().id() }}/move_up" method="POST">
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
               <formset>
-                <input type="submit" name="moveUp" value="Move Up" />
+                <input type="submit" class="moveUp" name="moveUp" value="" />
               </formset>
             </form>
-            <form action="/category/{{ category.key().id() }}/move_down" method="POST">
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
               <formset>
-                <input type="submit" name="moveDown" value="Move Down" />
+                <input type="submit" class="moveDown" name="moveDown" value="" />
               </formset>
             </form>
           </th>
@@ -35,20 +35,20 @@
         {% for item in category.items() %}
           <tr>
             <td class="itemName">{{ item.name }}</td>
-            <td>
-              <form action="/item/{{ item.key().id() }}/edit_form" method="GET">
+            <td class="editButtons">
+              <form class="buttonForm" action="/item/{{ item.key().id() }}/edit_form" method="GET">
                 <formset>
-                  <input class="formPopperButton" type="submit" name="edit" value="Edit" />
+                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" />
                 </formset>
               </form>
-              <form action="/item/{{ item.key().id() }}/move_up" method="POST">
+              <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
                 <formset>
-                  <input type="submit" name="moveUp" value="Move Up" />
+                  <input type="submit" class="moveUp" name="moveUp" value="Move Up" />
                 </formset>
               </form>
-              <form action="/item/{{ item.key().id() }}/move_down" method="POST">
+              <form class="buttonForm" action="/item/{{ item.key().id() }}/move_down" method="POST">
                 <formset>
-                  <input type="submit" name="moveDown" value="Move Down" />
+                  <input type="submit" class="moveDown" name="moveDown" value="Move Down" />
                 </formset>
               </form>
             </td>
