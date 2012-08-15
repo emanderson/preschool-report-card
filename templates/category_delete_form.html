@@ -1,7 +1,7 @@
 <div class="formPopup">
     <h2>Remove this Category?</h2>
     <form method="POST" action="/category/{{ category.key().id() }}/delete">
-        <p>{{ category.name }} and all its items will be removed from the report card.</p>
+        <p>"{{ category.name }}" and all the items in it will be removed from the report card.</p>
         <formset>
             <input type="submit" id="add" name="delete" value="Yes, Remove" />
             <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
