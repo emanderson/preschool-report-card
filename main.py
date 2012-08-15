@@ -20,14 +20,7 @@ import webapp2
 
 from handlers.card_handler import CardHandler
 from handlers.category_handler import CategoryHandler
-from handlers.item_add_form_handler import ItemAddFormHandler
-from handlers.item_add_handler import ItemAddHandler
-from handlers.item_edit_form_handler import ItemEditFormHandler
-from handlers.item_edit_handler import ItemEditHandler
-from handlers.item_delete_form_handler import ItemDeleteFormHandler
-from handlers.item_delete_handler import ItemDeleteHandler
-from handlers.item_move_up_handler import ItemMoveUpHandler
-from handlers.item_move_down_handler import ItemMoveDownHandler
+from handlers.item_handler import ItemHandler
 from utils.jinja_env import JinjaEnv
 from utils.auth import Auth
 
@@ -43,18 +36,18 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/preview', handler=CardHandler, handler_method='preview', name='card-preview'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add_form', handler=CategoryHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add', handler=CategoryHandler, handler_method='add'),
-    webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemEditFormHandler),
-    webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemEditHandler),
-    webapp2.Route(r'/item/<item_id:\d+>/delete_form', handler=ItemDeleteFormHandler),
-    webapp2.Route(r'/item/<item_id:\d+>/delete', handler=ItemDeleteHandler),
-    webapp2.Route(r'/item/<item_id:\d+>/move_up', handler=ItemMoveUpHandler),
-    webapp2.Route(r'/item/<item_id:\d+>/move_down', handler=ItemMoveDownHandler),
+    webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemHandler, handler_method='edit_form'),
+    webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemHandler, handler_method='edit'),
+    webapp2.Route(r'/item/<item_id:\d+>/delete_form', handler=ItemHandler, handler_method='delete_form'),
+    webapp2.Route(r'/item/<item_id:\d+>/delete', handler=ItemHandler, handler_method='delete'),
+    webapp2.Route(r'/item/<item_id:\d+>/move_up', handler=ItemHandler, handler_method='move_up'),
+    webapp2.Route(r'/item/<item_id:\d+>/move_down', handler=ItemHandler, handler_method='move_down'),
     webapp2.Route(r'/category/<category_id:\d+>/edit_form', handler=CategoryHandler, handler_method='edit_form'),
     webapp2.Route(r'/category/<category_id:\d+>/edit', handler=CategoryHandler, handler_method='edit'),
     webapp2.Route(r'/category/<category_id:\d+>/delete_form', handler=CategoryHandler, handler_method='delete_form'),
     webapp2.Route(r'/category/<category_id:\d+>/delete', handler=CategoryHandler, handler_method='delete'),
     webapp2.Route(r'/category/<category_id:\d+>/move_up', handler=CategoryHandler, handler_method='move_up'),
     webapp2.Route(r'/category/<category_id:\d+>/move_down', handler=CategoryHandler, handler_method='move_down'),
-    webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemAddFormHandler),
-    webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemAddHandler)
+    webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemHandler, handler_method='add_form'),
+    webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemHandler, handler_method='add')
 ], debug=True)
