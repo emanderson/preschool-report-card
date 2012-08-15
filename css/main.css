@@ -95,6 +95,16 @@ p.textLine input {
     width: 10cm;
 }
 
+p.key {
+  width: 16cm;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.35cm;
+  border-top: 1px solid black;
+  padding-top: 0.1cm;
+  margin-top: 0.3cm;
+}
+
 div.commentArea {
     margin-left: auto;
     margin-right: auto;
