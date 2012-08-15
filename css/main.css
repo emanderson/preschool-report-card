@@ -71,8 +71,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 0.45cm;
+    margin-top: 0.3cm;
+    text-decoration: underline;
+}
+
 p.textLine {
-    margin-left: 0.5cm;
+    margin-top: 0.1cm;
     margin-bottom: 0;
     text-align: center;
 }
@@ -87,6 +93,40 @@ p.textLine input {
     border: none;
     border-bottom: 1px solid black;
     width: 10cm;
+}
+
+div.commentArea {
+    margin-left: auto;
+    margin-right: auto;
+    width: 16cm;
+    margin-bottom: 0.5cm;
+}
+
+p.sigLine {
+    margin-top: 0.1cm;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+p.sigLine label {
+    display: inline-block;
+    text-align: left;
+    width: 3.3cm;
+}
+
+p.sigLine label.date {
+    margin-left: 0.5cm;
+    width: 1.1cm;
+}
+
+p.sigLine input {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 3cm;
+}
+
+p.sigLine input.sign {
+    width: 7cm;
 }
 
 /* /images/pencil_add.png comes from http://www.fatcow.com/free-icons */
@@ -140,6 +180,8 @@ a.editDocButton {
 table.reportSection {
     border-collapse: collapse;
     margin-top: 0.25cm;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table.reportSection td {
@@ -163,7 +205,7 @@ table.reportSection tr.titleHeader th.categoryName {
 }
 
 table.reportSection td.itemName {
-    width: 10.3cm;
+    width: 14.3cm;
     padding: 0 0.1cm;
 }
 

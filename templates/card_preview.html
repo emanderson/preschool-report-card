@@ -36,5 +36,16 @@
     </div>
   {% endfor %}
   
+  <div class="commentArea">
+    <h2>Comments</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed magna at lacus sagittis mattis. Nunc porta gravida neque quis posuere. In mattis, est ultricies viverra dictum, odio lacus rhoncus arcu, quis iaculis erat arcu at arcu. Sed porttitor sagittis est. Morbi odio diam, tincidunt at condimentum molestie, sollicitudin et metus. Suspendisse potenti. Curabitur nec metus sed orci porta malesuada in vitae orci. Aenean accumsan, nibh pharetra aliquam pellentesque, erat ligula iaculis purus, quis pulvinar quam nibh nec mi. Fusce luctus scelerisque ipsum, ac euismod dui bibendum nec. Sed pulvinar congue justo non dictum. In quis ipsum vitae dui ullamcorper adipiscing. Curabitur vitae mauris vel eros fringilla rhoncus.
+    </p>
+  </div>
+  
+  <p class="sigLine"><label for="sig_1_value">Parent Signature</label> <input class="sign" type="text" id="sig_1_value" name="sig_1_value" value=""/><label for="sig_1_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
+  <p class="sigLine"><label for="sig_2_value">Teacher Signature</label> <input class="sign" type="text" id="sig_2_value" name="sig_2_value" value=""/><label for="sig_2_date" class="date">Date</label> <input type="text" id="sig_2_date" name="sig_2_date" value=""/></p>
+  <p class="sigLine"><label for="sig_3_value">Teacher Signature</label> <input class="sign" type="text" id="sig_3_value" name="sig_3_value" value=""/><label for="sig_3_date" class="date">Date</label> <input type="text" id="sig_3_date" name="sig_3_date" value=""/></p>
+  
+  
   <a class="editDocButton" href="/card/{{ card.key().id() }}/edit">Edit the Report Card</a>
 {% endblock %}
