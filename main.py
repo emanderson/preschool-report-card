@@ -34,6 +34,8 @@ JinjaEnv.set(jinja_environment)
 app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/list', handler=CardHandler, handler_method='list', name='card-list'),
     webapp2.Route(r'/card/add_form', handler=CardHandler, handler_method='add_form', name='card-add-form'),
+    webapp2.Route(r'/card/<card_id:\d+>/add_owner', handler=CardHandler, handler_method='add_owner', name='card-add'),
+    webapp2.Route(r'/card/<card_id:\d+>/add_owner_form', handler=CardHandler, handler_method='add_owner_form', name='card-add-form'),
     webapp2.Route(r'/card/add', handler=CardHandler, handler_method='add', name='card-add'),
     webapp2.Route(r'/card/<card_id:\d+>/edit', handler=CardHandler, handler_method='edit', name='card-edit'),
     webapp2.Route(r'/card/<card_id:\d+>/preview', handler=CardHandler, handler_method='preview', name='card-preview'),

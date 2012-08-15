@@ -1,0 +1,15 @@
+<div class="formPopup">
+    <h2>Add an owner</h2>
+    <form method="POST" action="/card/{{ card.key().id() }}/add_owner">
+        <formset>
+            <label for="new_owner_id">Email:</label>
+            <select name="new_owner_id" id="new_owner_id">
+                {% for u in users %}
+                    <option value="{{ u.user_id }}">{{ u.email }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" id="add" name="add" value="Add" />
+            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
+        </formset>
+    </form>
+</div>
