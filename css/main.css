@@ -100,7 +100,7 @@ a.addItem {
     border-radius: 4px;
     margin-top: 5px;
     margin-bottom: 20px;
-    padding: 2px 5px 2px 18px;
+    padding: 2px 5px 2px 20px;
     font-size: 14px;
     line-height: 20px;
 }
@@ -116,7 +116,7 @@ a.previewButton {
     border-radius: 4px;
     margin-top: 5px;
     margin-bottom: 20px;
-    padding: 2px 5px 2px 18px;
+    padding: 2px 5px 2px 20px;
     font-size: 14px;
     line-height: 20px;
 }
@@ -132,7 +132,7 @@ a.editDocButton {
     border-radius: 4px;
     margin-top: 5px;
     margin-bottom: 20px;
-    padding: 2px 5px 2px 18px;
+    padding: 2px 5px 2px 20px;
     font-size: 14px;
     line-height: 20px;
 }
