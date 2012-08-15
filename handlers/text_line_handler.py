@@ -2,6 +2,7 @@ import webapp2
 
 from utils.jinja_env import JinjaEnv
 from models.text_line import TextLine
+from models.report_card import ReportCard
 
 class TextLineHandler(webapp2.RequestHandler):
     def add_form(self, card_id):
@@ -30,8 +31,10 @@ class TextLineHandler(webapp2.RequestHandler):
             return webapp2.redirect_to('card-edit', card_id=text_line.card.key().id())
     
     def delete_form(self, text_line_id):
-        template = JinjaEnv.get().get_template('templates/text_line_delete_form.html')
-        self.response.out.write(template.render({'text_line_id': text_line_id, 'text_line': text_line}))
+        text_line = TextLine.find_by_id(int(text_line_id))
+        if text_line.card.is_authorized():
+            template = JinjaEnv.get().get_template('templates/text_line_delete_form.html')
+            self.response.out.write(template.render({'text_line_id': text_line_id, 'text_line': text_line}))
         
     def delete(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))
