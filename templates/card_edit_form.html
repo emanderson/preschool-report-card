@@ -19,6 +19,11 @@
                 <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit"  />
               </formset>
             </form>
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/delete_form" method="GET">
+              <formset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+              </formset>
+            </form>
             <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
               <formset>
                 <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
@@ -41,6 +46,11 @@
                   <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </formset>
               </form>
+            <form class="buttonForm" action="/item/{{ item.key().id() }}/delete_form" method="GET">
+              <formset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+              </formset>
+            </form>
               <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
                 <formset>
                   <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up" />

@@ -1,0 +1,10 @@
+<div class="formPopup">
+    <form method="POST" action="/item/{{ item_id }}/delete">
+        <h2>Remove this Item?</h2>
+        <p>{{ item.name }} will be removed from the report card.</p>
+        <formset>
+            <input type="submit" id="add" name="delete" value="Yes, Remove" />
+        </formset>
+    </form>
+    <a class="closer" href="#">Cancel</a>
+</div>
