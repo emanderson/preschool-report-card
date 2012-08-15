@@ -90,9 +90,18 @@ p.textLine input {
 }
 
 a.addItem {
-    width: 11.7cm;
-    text-align: right;
-    font-size: 0.3cm;
+    display: inline-block;
+    height: 20px;
+    padding-left: 18px;
+    background : url("/images/pencil_add.png") no-repeat 2px center;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 2px 5px 2px 18px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 table.reportSection {
