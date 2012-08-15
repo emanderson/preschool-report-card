@@ -104,6 +104,36 @@ a.addItem {
     line-height: 20px;
 }
 
+a.previewButton {
+    display: inline-block;
+    height: 20px;
+    padding-left: 18px;
+    background : url("/images/document_layout.png") no-repeat 2px center;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 2px 5px 2px 18px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+a.editDocButton {
+    display: inline-block;
+    height: 20px;
+    padding-left: 18px;
+    background : url("/images/document_prepare.png") no-repeat 2px center;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 2px 5px 2px 18px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
 table.reportSection {
     border-collapse: collapse;
     margin-top: 0.25cm;

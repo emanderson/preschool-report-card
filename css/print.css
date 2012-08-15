@@ -9,7 +9,9 @@
         border: 1px solid black;
     }
     
-    a {
+    a,
+    a.editDocButton {
         display: none;
-    } 
+    }
+     
 }
