@@ -16,17 +16,17 @@
           <th>
             <form class="buttonForm" action="/category/{{ category.key().id() }}/edit_form" method="GET">
               <formset>
-                <input class="formPopperButton editButton" type="submit" name="edit" value="" />
+                <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit"  />
               </formset>
             </form>
             <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
               <formset>
-                <input type="submit" class="moveUp" name="moveUp" value="" />
+                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
               </formset>
             </form>
             <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
               <formset>
-                <input type="submit" class="moveDown" name="moveDown" value="" />
+                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
               </formset>
             </form>
           </th>
@@ -38,17 +38,17 @@
             <td class="editButtons">
               <form class="buttonForm" action="/item/{{ item.key().id() }}/edit_form" method="GET">
                 <formset>
-                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" />
+                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </formset>
               </form>
               <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
                 <formset>
-                  <input type="submit" class="moveUp" name="moveUp" value="Move Up" />
+                  <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up" />
                 </formset>
               </form>
               <form class="buttonForm" action="/item/{{ item.key().id() }}/move_down" method="POST">
                 <formset>
-                  <input type="submit" class="moveDown" name="moveDown" value="Move Down" />
+                  <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down" />
                 </formset>
               </form>
             </td>
