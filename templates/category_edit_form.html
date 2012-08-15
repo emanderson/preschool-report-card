@@ -1,11 +1,11 @@
 <div class="formPopup">
+    <h2>Edit Category</h2>
     <form method="POST" action="/category/{{ category.key().id() }}/edit">
-        <h2>Edit Category</h2>
         <formset>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="{{category.name}}" />
             <input type="submit" id="add" name="edit" value="Edit" />
+            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
         </formset>
     </form>
-    <a class="closer" href="#">Cancel</a>
 </div>

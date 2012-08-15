@@ -10,9 +10,10 @@
   
   <ul>
     {% for card in cards %}
-      <li>{{ card.name }} - <a href="/card/{{ card.key().id() }}/edit">Edit</a></li>
+      <li>{{ card.name }} <a class="editItem" href="/card/{{ card.key().id() }}/edit">Edit</a></li>
     {% endfor %}
   </ul>
   
-  <a class="formPopper" href="/card/add_form">Add A New Card</a>
+  <a class="formPopper addItem" href="/card/add_form">Add A New Card</a>
+  
 {% endblock %}

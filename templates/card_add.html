@@ -1,11 +1,11 @@
 <div class="formPopup">
+    <h2>Add a Report Card</h2>
     <form method="POST" action="/card/add">
-        <h2>Add a Report Card</h2>
         <formset>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" />
             <input type="submit" id="add" name="add" value="Add" />
+            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
         </formset>
     </form>
-    <a class="closer" href="#">Cancel</a>
 </div>
