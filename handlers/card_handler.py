@@ -6,6 +6,9 @@ from models.report_card import ReportCard
 from utils.jinja_env import JinjaEnv
 
 class CardHandler(webapp2.RequestHandler):
+    def main(self):
+        return webapp2.redirect_to('card-list')
+
     def list(self):
         # TODO: handle this some other way
         AppUser.record_access(users.get_current_user())

@@ -20,9 +20,9 @@ class AppUser(BaseModel):
     def for_user(self, user):
         app_user = self.gql("WHERE user_id = :1", user.user_id()).fetch(1)
         if not app_user:
-            self.create(user)
-            app_user = self.gql("WHERE user_id = :1", user.user_id()).fetch(1)
-        return app_user[0]
+            return self.get(self.create(user))
+        else:
+            return app_user[0]
     
     @classmethod
     def record_access(self, user):
