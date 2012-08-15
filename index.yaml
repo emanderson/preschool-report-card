@@ -25,3 +25,8 @@ indexes:
   - name: card
   - name: score
     direction: desc
+
+- kind: TextLine
+  properties:
+  - name: card
+  - name: position

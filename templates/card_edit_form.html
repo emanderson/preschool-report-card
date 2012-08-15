@@ -33,6 +33,38 @@
   </table>
   <a class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a>
   
+  <h2>Edit Text Lines (Top of Form)</h2>
+  <table>
+  {% for text_line in card.text_lines() %}
+    <tr>
+        <td>{{ text_line.name }}</td>
+        <td class="editButtons">
+              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
+                <formset>
+                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                </formset>
+              </form>
+            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
+              <formset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+              </formset>
+            </form>
+            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
+              <formset>
+                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
+              </formset>
+            </form>
+            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
+              <formset>
+                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
+              </formset>
+            </form>
+            </td>
+    </tr>
+  {% endfor %}
+  </table>
+  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/text_line/add_form">Add a Text Line</a>
+  
   <h2>Edit Categories and Items</h2>
   
   {% for category in card.categories() %}

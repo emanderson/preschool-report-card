@@ -10,10 +10,9 @@
   
   <h1>{{ card.name }}</h1>
   
-  <p class="textLine"><label for="text_1_value">Childʼs name</label> <input type="text" id="text_1_value" name="text_1_value" value="Bob Jones"/></p>
-  <p class="textLine"><label for="text_2_value">Teachers</label> <input type="text" id="text_2_value"name="text_2_value" value="Mrs. Anderson and Mrs. Someone"/></p>
-  <p class="textLine"><label for="text_3_value">Date</label> <input type="text" id="text_3_value"name="text_3_value" value="March 2013"/></p>
-  <p class="textLine"><label for="text_4_value">Age at time of report</label> <input type="text" id="text_4_value"name="text_4_value" value="5 years 1 month"/></p>
+  {% for text_line in card.text_lines() %}
+  <p class="textLine"><label for="text_{{text_line.position}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.position}}_value" name="text_{{text_line.position}}_value" value=""/></p>
+  {% endfor %}
   
   <p class="key">Key: 
   {% for key_level in card.key_levels() %}
