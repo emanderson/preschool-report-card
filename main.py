@@ -23,6 +23,7 @@ from handlers.category_handler import CategoryHandler
 from handlers.item_handler import ItemHandler
 from handlers.key_handler import KeyHandler
 from handlers.text_line_handler import TextLineHandler
+from handlers.signature_handler import SignatureHandler
 from utils.jinja_env import JinjaEnv
 from utils.auth import Auth
 
@@ -38,6 +39,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/preview', handler=CardHandler, handler_method='preview', name='card-preview'),
     webapp2.Route(r'/card/<card_id:\d+>/text_line/add_form', handler=TextLineHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/text_line/add', handler=TextLineHandler, handler_method='add'),
+    webapp2.Route(r'/card/<card_id:\d+>/signature/add_form', handler=SignatureHandler, handler_method='add_form'),
+    webapp2.Route(r'/card/<card_id:\d+>/signature/add', handler=SignatureHandler, handler_method='add'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add_form', handler=CategoryHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/key_level/add', handler=KeyHandler, handler_method='add'),
     webapp2.Route(r'/card/<card_id:\d+>/key_level/add_form', handler=KeyHandler, handler_method='add_form'),
@@ -60,6 +63,12 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/text_line/<text_line_id:\d+>/delete', handler=TextLineHandler, handler_method='delete'),
     webapp2.Route(r'/text_line/<text_line_id:\d+>/move_up', handler=TextLineHandler, handler_method='move_up'),
     webapp2.Route(r'/text_line/<text_line_id:\d+>/move_down', handler=TextLineHandler, handler_method='move_down'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/edit_form', handler=SignatureHandler, handler_method='edit_form'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/edit', handler=SignatureHandler, handler_method='edit'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/delete_form', handler=SignatureHandler, handler_method='delete_form'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/delete', handler=SignatureHandler, handler_method='delete'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/move_up', handler=SignatureHandler, handler_method='move_up'),
+    webapp2.Route(r'/signature/<signature_id:\d+>/move_down', handler=SignatureHandler, handler_method='move_down'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/edit_form', handler=KeyHandler, handler_method='edit_form'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/edit', handler=KeyHandler, handler_method='edit'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/delete_form', handler=KeyHandler, handler_method='delete_form'),

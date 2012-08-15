@@ -130,6 +130,40 @@
   
   <a class="formPopper addItem" href="/card/{{ card.key().id() }}/category/add_form">Add A Category</a>
   
+  <h2>Edit Signatures (Bottom of Form)</h2>
+  <table>
+  {% for signature in card.signatures() %}
+    <tr>
+        <td>{{ signature.name }}</td>
+        <td class="editButtons">
+              <form class="buttonForm" action="/signature/{{ signature.key().id() }}/edit_form" method="GET">
+                <formset>
+                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                </formset>
+              </form>
+            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
+              <formset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+              </formset>
+            </form>
+            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
+              <formset>
+                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
+              </formset>
+            </form>
+            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
+              <formset>
+                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
+              </formset>
+            </form>
+            </td>
+    </tr>
+  {% endfor %}
+  </table>
+  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/signature/add_form">Add a Signature</a>
+  
+  <br />
+  
   <a class="previewButton" href="/card/{{ card.key().id() }}/preview">Preview the Report Card</a>
   
   </div>

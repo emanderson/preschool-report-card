@@ -1,0 +1,11 @@
+<div class="formPopup">
+    <h2>Edit Signature</h2>
+    <form method="POST" action="/signature/{{ signature.key().id() }}/edit">
+        <formset>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{signature.name}}" />
+            <input type="submit" id="add" name="edit" value="Edit" />
+            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
+        </formset>
+    </form>
+</div>

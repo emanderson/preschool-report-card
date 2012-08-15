@@ -43,10 +43,9 @@
     </p>
   </div>
   
-  <p class="sigLine"><label for="sig_1_value">Parent Signature</label> <input class="sign" type="text" id="sig_1_value" name="sig_1_value" value=""/><label for="sig_1_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
-  <p class="sigLine"><label for="sig_2_value">Teacher Signature</label> <input class="sign" type="text" id="sig_2_value" name="sig_2_value" value=""/><label for="sig_2_date" class="date">Date</label> <input type="text" id="sig_2_date" name="sig_2_date" value=""/></p>
-  <p class="sigLine"><label for="sig_3_value">Teacher Signature</label> <input class="sign" type="text" id="sig_3_value" name="sig_3_value" value=""/><label for="sig_3_date" class="date">Date</label> <input type="text" id="sig_3_date" name="sig_3_date" value=""/></p>
-  
+  {% for signature in card.signatures() %}
+  <p class="sigLine"><label for="sig_{{signature.position}}_value">{{signature.name}}</label> <input class="sign" type="text" id="sig_{{signature.position}}_value" name="sig_{{signature.position}}_value" value=""/><label for="sig_{{signature.position}}_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
+  {% endfor %}
   
   <a class="editDocButton" href="/card/{{ card.key().id() }}/edit">Edit the Report Card</a>
 {% endblock %}

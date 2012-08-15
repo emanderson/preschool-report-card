@@ -38,6 +38,11 @@ class ReportCard(BaseModel):
         items = TextLine.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)
         return items
     
+    def signatures(self):
+        from models.signature import Signature
+        items = Signature.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)
+        return items
+    
     def key_levels(self):
         from models.eval_key_level import EvalKeyLevel
         levels = EvalKeyLevel.gql("WHERE card = :1 ORDER BY score DESC", self).fetch(100)

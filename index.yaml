@@ -26,6 +26,11 @@ indexes:
   - name: score
     direction: desc
 
+- kind: Signature
+  properties:
+  - name: card
+  - name: position
+
 - kind: TextLine
   properties:
   - name: card
