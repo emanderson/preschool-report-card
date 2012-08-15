@@ -10,6 +10,31 @@
   
   <div class="editing">
   
+  <h2>Edit Key</h2>
+  <table>
+  {% for key_level in card.key_levels() %}
+    <tr>
+        <td>{{ key_level.name }}</td>
+        <td>{{ key_level.score }}</td>
+        <td class="editButtons">
+              <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
+                <formset>
+                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                </formset>
+              </form>
+            <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
+              <formset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+              </formset>
+            </form>
+            </td>
+    </tr>
+  {% endfor %}
+  </table>
+  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a>
+  
+  <h2>Edit Categories and Items</h2>
+  
   {% for category in card.categories() %}
     <div>
       <table class="reportSection">

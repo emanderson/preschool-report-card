@@ -19,3 +19,9 @@ indexes:
   properties:
   - name: category
   - name: position
+
+- kind: EvalKeyLevel
+  properties:
+  - name: card
+  - name: score
+    direction: desc

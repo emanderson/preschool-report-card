@@ -32,3 +32,8 @@ class ReportCard(BaseModel):
         from models.eval_category import EvalCategory
         items = EvalCategory.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)
         return items
+    
+    def key_levels(self):
+        from models.eval_key_level import EvalKeyLevel
+        levels = EvalKeyLevel.gql("WHERE card = :1 ORDER BY score DESC", self).fetch(100)
+        return levels

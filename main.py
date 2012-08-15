@@ -21,6 +21,7 @@ import webapp2
 from handlers.card_handler import CardHandler
 from handlers.category_handler import CategoryHandler
 from handlers.item_handler import ItemHandler
+from handlers.key_handler import KeyHandler
 from utils.jinja_env import JinjaEnv
 from utils.auth import Auth
 
@@ -35,6 +36,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/edit', handler=CardHandler, handler_method='edit', name='card-edit'),
     webapp2.Route(r'/card/<card_id:\d+>/preview', handler=CardHandler, handler_method='preview', name='card-preview'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add_form', handler=CategoryHandler, handler_method='add_form'),
+    webapp2.Route(r'/card/<card_id:\d+>/key_level/add', handler=KeyHandler, handler_method='add'),
+    webapp2.Route(r'/card/<card_id:\d+>/key_level/add_form', handler=KeyHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add', handler=CategoryHandler, handler_method='add'),
     webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemHandler, handler_method='edit_form'),
     webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemHandler, handler_method='edit'),
@@ -48,6 +51,10 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/category/<category_id:\d+>/delete', handler=CategoryHandler, handler_method='delete'),
     webapp2.Route(r'/category/<category_id:\d+>/move_up', handler=CategoryHandler, handler_method='move_up'),
     webapp2.Route(r'/category/<category_id:\d+>/move_down', handler=CategoryHandler, handler_method='move_down'),
+    webapp2.Route(r'/key_level/<key_level_id:\d+>/edit_form', handler=KeyHandler, handler_method='edit_form'),
+    webapp2.Route(r'/key_level/<key_level_id:\d+>/edit', handler=KeyHandler, handler_method='edit'),
+    webapp2.Route(r'/key_level/<key_level_id:\d+>/delete_form', handler=KeyHandler, handler_method='delete_form'),
+    webapp2.Route(r'/key_level/<key_level_id:\d+>/delete', handler=KeyHandler, handler_method='delete'),
     webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemHandler, handler_method='add_form'),
     webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemHandler, handler_method='add')
 ], debug=True)

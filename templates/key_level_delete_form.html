@@ -1,0 +1,10 @@
+<div class="formPopup">
+    <h2>Remove this from the key?</h2>
+    <form method="POST" action="/key_level/{{ key_level.key().id() }}/delete">
+        <p>{{ key_level.name }} = {{ key_level.score }} will be removed from the report card key.</p>
+        <formset>
+            <input type="submit" id="add" name="delete" value="Yes, Remove" />
+            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
+        </formset>
+    </form>
+</div>
