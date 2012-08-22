@@ -20,6 +20,7 @@ import webapp2
 
 from handlers.card_handler import CardHandler
 from handlers.category_handler import CategoryHandler
+from handlers.eval_handler import EvalHandler
 from handlers.item_handler import ItemHandler
 from handlers.key_handler import KeyHandler
 from handlers.text_line_handler import TextLineHandler
@@ -47,6 +48,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/key_level/add', handler=KeyHandler, handler_method='add'),
     webapp2.Route(r'/card/<card_id:\d+>/key_level/add_form', handler=KeyHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add', handler=CategoryHandler, handler_method='add'),
+    webapp2.Route(r'/card/<card_id:\d+>/eval/list', handler=EvalHandler, handler_method='list', name='eval-list'),
     webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemHandler, handler_method='edit_form'),
     webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemHandler, handler_method='edit'),
     webapp2.Route(r'/item/<item_id:\d+>/delete_form', handler=ItemHandler, handler_method='delete_form'),
