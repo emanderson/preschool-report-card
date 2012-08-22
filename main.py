@@ -57,6 +57,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/item/<item_id:\d+>/delete', handler=ItemHandler, handler_method='delete'),
     webapp2.Route(r'/item/<item_id:\d+>/move_up', handler=ItemHandler, handler_method='move_up'),
     webapp2.Route(r'/item/<item_id:\d+>/move_down', handler=ItemHandler, handler_method='move_down'),
+    webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemHandler, handler_method='add_form'),
+    webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemHandler, handler_method='add'),
     webapp2.Route(r'/category/<category_id:\d+>/edit_form', handler=CategoryHandler, handler_method='edit_form'),
     webapp2.Route(r'/category/<category_id:\d+>/edit', handler=CategoryHandler, handler_method='edit'),
     webapp2.Route(r'/category/<category_id:\d+>/delete_form', handler=CategoryHandler, handler_method='delete_form'),
@@ -79,7 +81,6 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/key_level/<key_level_id:\d+>/edit', handler=KeyHandler, handler_method='edit'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/delete_form', handler=KeyHandler, handler_method='delete_form'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/delete', handler=KeyHandler, handler_method='delete'),
-    webapp2.Route(r'/category/<category_id:\d+>/item/add_form', handler=ItemHandler, handler_method='add_form'),
-    webapp2.Route(r'/category/<category_id:\d+>/item/add', handler=ItemHandler, handler_method='add'),
+    webapp2.Route(r'/eval/<eval_id:\d+>/fill', handler=EvalHandler, handler_method='fill'),
     webapp2.Route(r'/', handler=CardHandler, handler_method='main'),
 ], debug=True)

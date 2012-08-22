@@ -25,3 +25,9 @@ class EvalHandler(webapp2.RequestHandler):
         if card.is_authorized():
             Evaluation.create(self.request.get('name'), int(card_id))
             return webapp2.redirect_to('eval-list', card_id=int(card_id))
+
+    def fill(self, eval_id):
+        eval = Evaluation.find_by_id(int(eval_id))
+        if eval.card.is_authorized():
+            template = JinjaEnv.get().get_template('templates/eval_fill.html')
+            self.response.out.write(template.render({'eval': eval}))
