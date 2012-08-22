@@ -34,6 +34,11 @@ class ReportCard(BaseModel):
         app_user = AppUser.for_user(user)
         return app_user.is_admin or user.user_id() in self.owner_user_id
     
+    def evaluations(self):
+        from models.evaluation import Evaluation
+        items = Evaluation.gql("WHERE card = :1 ORDER BY name ASC", self).fetch(100)
+        return items
+    
     def categories(self):
         from models.eval_category import EvalCategory
         items = EvalCategory.gql("WHERE card = :1 ORDER BY position ASC", self).fetch(100)

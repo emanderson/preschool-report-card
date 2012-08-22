@@ -26,6 +26,11 @@ indexes:
   - name: score
     direction: desc
 
+- kind: Evaluation
+  properties:
+  - name: card
+  - name: name
+
 - kind: Signature
   properties:
   - name: card

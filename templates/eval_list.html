@@ -8,4 +8,15 @@
 {% block body_content %}
   <h1>Evaluations for {{ card.name }}</h1>
   
+  <ul>
+    {% for eval in card.evaluations() %}
+      <li>
+        {{ eval.name }} 
+        <a class="editItem" href="/eval/{{ eval.key().id() }}/fill">Fill Out</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/eval/add_form">Add An Evaluation for a Student</a>
+  
 {% endblock %}

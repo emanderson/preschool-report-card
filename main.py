@@ -49,6 +49,8 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/card/<card_id:\d+>/key_level/add_form', handler=KeyHandler, handler_method='add_form'),
     webapp2.Route(r'/card/<card_id:\d+>/category/add', handler=CategoryHandler, handler_method='add'),
     webapp2.Route(r'/card/<card_id:\d+>/eval/list', handler=EvalHandler, handler_method='list', name='eval-list'),
+    webapp2.Route(r'/card/<card_id:\d+>/eval/add_form', handler=EvalHandler, handler_method='add_form'),
+    webapp2.Route(r'/card/<card_id:\d+>/eval/add', handler=EvalHandler, handler_method='add'),
     webapp2.Route(r'/item/<item_id:\d+>/edit_form', handler=ItemHandler, handler_method='edit_form'),
     webapp2.Route(r'/item/<item_id:\d+>/edit', handler=ItemHandler, handler_method='edit'),
     webapp2.Route(r'/item/<item_id:\d+>/delete_form', handler=ItemHandler, handler_method='delete_form'),
