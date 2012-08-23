@@ -2,3 +2,6 @@ Running tests for coverage data:
 0. Install coverage with 'easy_install coverage' (first time only)
 1. Run tests with 'coverage run run_tests.py'
 2. Generate report with 'coverage report -m'
+
+.coveragerc controls which packages are ignored in coverage percentages (e.g. app engine 
+and webtest)
