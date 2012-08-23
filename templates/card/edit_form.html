@@ -22,12 +22,12 @@
                   <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </formset>
               </form>
-            <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
-              <formset>
-                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
-              </formset>
-            </form>
-            </td>
+              <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
+                <formset>
+                  <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+                </formset>
+              </form>
+        </td>
     </tr>
   {% endfor %}
   </table>
@@ -44,22 +44,22 @@
                   <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </formset>
               </form>
-            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
-              <formset>
-                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
-              </formset>
-            </form>
-            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
-              <formset>
-                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
-              </formset>
-            </form>
-            <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
-              <formset>
-                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
-              </formset>
-            </form>
-            </td>
+              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
+                <formset>
+                  <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+                </formset>
+              </form>
+              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
+                <formset>
+                  <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
+                </formset>
+              </form>
+              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
+                <formset>
+                  <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
+                </formset>
+              </form>
+        </td>
     </tr>
   {% endfor %}
   </table>
@@ -141,22 +141,22 @@
                   <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </formset>
               </form>
-            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
-              <formset>
-                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
-              </formset>
-            </form>
-            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
-              <formset>
-                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
-              </formset>
-            </form>
-            <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
-              <formset>
-                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
-              </formset>
-            </form>
-            </td>
+              <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
+                <formset>
+                  <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
+                </formset>
+              </form>
+              <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
+                <formset>
+                  <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
+                </formset>
+              </form>
+              <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
+                <formset>
+                  <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
+                </formset>
+              </form>
+        </td>
     </tr>
   {% endfor %}
   </table>
