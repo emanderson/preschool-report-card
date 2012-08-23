@@ -8,7 +8,7 @@ class TextLineHandler(webapp2.RequestHandler):
     def add_form(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/text_line_add_form.html')
+            template = JinjaEnv.get().get_template('templates/text_line/add_form.html')
             self.response.out.write(template.render({'card_id': card_id}))
     
     def add(self, card_id):
@@ -20,7 +20,7 @@ class TextLineHandler(webapp2.RequestHandler):
     def edit_form(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))
         if text_line.card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/text_line_edit_form.html')
+            template = JinjaEnv.get().get_template('templates/text_line/edit_form.html')
             self.response.out.write(template.render({'text_line_id': text_line_id, 'text_line': text_line}))
         
     def edit(self, text_line_id):
@@ -33,7 +33,7 @@ class TextLineHandler(webapp2.RequestHandler):
     def delete_form(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))
         if text_line.card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/text_line_delete_form.html')
+            template = JinjaEnv.get().get_template('templates/text_line/delete_form.html')
             self.response.out.write(template.render({'text_line_id': text_line_id, 'text_line': text_line}))
         
     def delete(self, text_line_id):
