@@ -4,6 +4,7 @@ from google.appengine.api import users
 from models.app_user import AppUser
 from models.report_card import ReportCard
 from models.evaluation import Evaluation
+from models.eval_item_data import EvalItemData
 from utils.jinja_env import JinjaEnv
 
 class EvalHandler(webapp2.RequestHandler):
@@ -29,12 +30,17 @@ class EvalHandler(webapp2.RequestHandler):
     def fill(self, eval_id):
         eval = Evaluation.find_by_id(int(eval_id))
         if eval.card.is_authorized():
+            # raise Exception(eval.all_data())
             template = JinjaEnv.get().get_template('templates/eval_fill.html')
-            self.response.out.write(template.render({'eval': eval}))
+            self.response.out.write(template.render({'eval': eval, 'data': eval.all_data()}))
     
     def save(self, eval_id):
         eval = Evaluation.find_by_id(int(eval_id))
         if eval.card.is_authorized():
-            raise Exception(self.request)
-            template = JinjaEnv.get().get_template('templates/eval_fill.html')
-            self.response.out.write(template.render({'eval': eval}))
+            # raise Exception(self.request)
+            for cat in eval.card.categories():
+                for item in cat.items():
+                    val = self.request.get('item_%s_score' % item.key().id())
+                    if val:
+                        EvalItemData.create_or_update(item.key().id(), int(eval_id), val)
+            return webapp2.redirect_to('eval-fill', eval_id=int(eval_id))
