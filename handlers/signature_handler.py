@@ -8,7 +8,7 @@ class SignatureHandler(webapp2.RequestHandler):
     def add_form(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/signature_add_form.html')
+            template = JinjaEnv.get().get_template('templates/signature/add_form.html')
             self.response.out.write(template.render({'card_id': card_id}))
     
     def add(self, card_id):
@@ -20,7 +20,7 @@ class SignatureHandler(webapp2.RequestHandler):
     def edit_form(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))
         if sig.card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/signature_edit_form.html')
+            template = JinjaEnv.get().get_template('templates/signature/edit_form.html')
             self.response.out.write(template.render({'signature_id': signature_id, 'signature': sig}))
         
     def edit(self, signature_id):
@@ -33,7 +33,7 @@ class SignatureHandler(webapp2.RequestHandler):
     def delete_form(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))
         if sig.card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/signature_delete_form.html')
+            template = JinjaEnv.get().get_template('templates/signature/delete_form.html')
             self.response.out.write(template.render({'signature_id': signature_id, 'signature': sig}))
         
     def delete(self, signature_id):
