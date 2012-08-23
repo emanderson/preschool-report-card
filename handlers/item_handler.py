@@ -8,7 +8,7 @@ class ItemHandler(webapp2.RequestHandler):
     def add_form(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))
         if category.card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/item_add.html')
+            template = JinjaEnv.get().get_template('templates/item/add_form.html')
             self.response.out.write(template.render({'category_id': category_id}))
         
     def add(self, category_id):
@@ -21,7 +21,7 @@ class ItemHandler(webapp2.RequestHandler):
         item = EvalItem.find_by_id(int(item_id))
         card = item.category.card
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/item_edit.html')
+            template = JinjaEnv.get().get_template('templates/item/edit_form.html')
             self.response.out.write(template.render({'item_id': item_id, 'item': item}))
         
     def edit(self, item_id):
@@ -36,7 +36,7 @@ class ItemHandler(webapp2.RequestHandler):
         item = EvalItem.find_by_id(int(item_id))
         card = item.category.card
         if card.is_authorized():            
-            template = JinjaEnv.get().get_template('templates/item_delete.html')
+            template = JinjaEnv.get().get_template('templates/item/delete_form.html')
             self.response.out.write(template.render({'item_id': item_id, 'item': item}))
         
     def delete(self, item_id):
