@@ -8,7 +8,7 @@ class CategoryHandler(webapp2.RequestHandler):
     def add_form(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/category_add.html')
+            template = JinjaEnv.get().get_template('templates/category/add_form.html')
             self.response.out.write(template.render({'card_id': card_id}))
     
     def add(self, card_id):
@@ -21,7 +21,7 @@ class CategoryHandler(webapp2.RequestHandler):
         category = EvalCategory.find_by_id(int(category_id))
         card = category.card
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/category_edit_form.html')
+            template = JinjaEnv.get().get_template('templates/category/edit_form.html')
             self.response.out.write(template.render({'category_id': category_id, 'category': category}))
         
     def edit(self, category_id):
@@ -36,7 +36,7 @@ class CategoryHandler(webapp2.RequestHandler):
         category = EvalCategory.find_by_id(int(category_id))
         card = category.card
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/category_delete_form.html')
+            template = JinjaEnv.get().get_template('templates/category/delete_form.html')
             self.response.out.write(template.render({'category_id': category_id, 'category': category}))
         
     def delete(self, category_id):
