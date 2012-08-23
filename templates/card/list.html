@@ -12,7 +12,7 @@
     {% for card in cards %}
       <li>
         {{ card.name }} 
-        <a class="editItem" href="/card/{{ card.key().id() }}/edit">Edit</a>
+        <a class="editItem" href="{{ uri_for('card-edit', card_id=card.key().id()) }}">Edit</a>
         <a class="editItem" href="/card/{{ card.key().id() }}/eval/list">Fill Out</a>
         {% if current_user.is_admin %}
           <a class="formPopper addItem" href="/card/{{ card.key().id() }}/add_owner_form">Add Owner</a>
@@ -21,6 +21,6 @@
     {% endfor %}
   </ul>
   
-  <a class="formPopper addItem" href="/card/add_form">Add A New Card</a>
+  <a class="formPopper addItem" href="{{ uri_for('card-add-form') }}">Add A New Card</a>
   
 {% endblock %}

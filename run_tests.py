@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
-'''From https://developers.google.com/appengine/docs/python/tools/localunittesting'''
+'''Adapted from https://developers.google.com/appengine/docs/python/tools/localunittesting
+Some tests require webtest to be installed (see http://webtest.pythonpaste.org/en/latest/index.html#installation)
+Some tests require jinja2 to be installed (see http://jinja.pocoo.org/docs/intro/)
+'''
 
 import optparse
 import sys
