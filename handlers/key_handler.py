@@ -8,7 +8,7 @@ class KeyHandler(webapp2.RequestHandler):
     def add_form(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/key_level_add_form.html')
+            template = JinjaEnv.get().get_template('templates/key_level/add_form.html')
             self.response.out.write(template.render({'card_id': card_id}))
     
     def add(self, card_id):
@@ -21,7 +21,7 @@ class KeyHandler(webapp2.RequestHandler):
         key_level = EvalKeyLevel.find_by_id(int(key_level_id))
         card = key_level.card
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/key_level_edit_form.html')
+            template = JinjaEnv.get().get_template('templates/key_level/edit_form.html')
             self.response.out.write(template.render({'key_level_id': key_level_id, 'key_level': key_level}))
         
     def edit(self, key_level_id):
@@ -37,7 +37,7 @@ class KeyHandler(webapp2.RequestHandler):
         key_level = EvalKeyLevel.find_by_id(int(key_level_id))
         card = key_level.card
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/key_level_delete_form.html')
+            template = JinjaEnv.get().get_template('templates/key_level/delete_form.html')
             self.response.out.write(template.render({'key_level_id': key_level_id, 'key_level': key_level}))
         
     def delete(self, key_level_id):
