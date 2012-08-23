@@ -1,24 +1,9 @@
-import os
-import unittest
-import webapp2
-import webtest
-import main
-from google.appengine.api import users
-from google.appengine.ext import testbed
-
 from test.handler_test_case import HandlerTestCase
 
 from card_handler import CardHandler
 from models.report_card import ReportCard
-from models.app_user import AppUser
 
 class CardHandlerTest(HandlerTestCase):
-    def setUp(self):
-        super(CardHandlerTest, self).setUp()
-        
-    def tearDown(self):
-        super(CardHandlerTest, self).tearDown()
-    
     def test_main(self):
         response = self.testapp.get('/')
         self.assertRedirect('/card/list$', response)
@@ -51,6 +36,7 @@ class CardHandlerTest(HandlerTestCase):
         self.assertSuccess(response)
     
     def test_add_owner_form(self):
+        self.makeAdmin()
         c = ReportCard.create(name='Add Owner Form Test Name')
         response = self.testapp.get('/card/%d/add_owner_form' % c.id())
         self.assertSuccess(response)
