@@ -13,11 +13,11 @@ class CardHandler(webapp2.RequestHandler):
         # TODO: handle this some other way
         AppUser.record_access(users.get_current_user())
         current_user = AppUser.for_user(users.get_current_user())
-        template = JinjaEnv.get().get_template('templates/card_list.html')
+        template = JinjaEnv.get().get_template('templates/card/list.html')
         self.response.out.write(template.render({'cards': ReportCard.list_by_user(), 'current_user': current_user}))
 
     def add_form(self):
-        template = JinjaEnv.get().get_template('templates/card_add.html')
+        template = JinjaEnv.get().get_template('templates/card/add_form.html')
         self.response.out.write(template.render({}))
         
     def add(self):
@@ -29,19 +29,19 @@ class CardHandler(webapp2.RequestHandler):
         AppUser.record_access(users.get_current_user())
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/card_edit_form.html')
+            template = JinjaEnv.get().get_template('templates/card/edit_form.html')
             self.response.out.write(template.render({'card': card}))
 
     def preview(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/card_preview.html')
+            template = JinjaEnv.get().get_template('templates/card/preview.html')
             self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id))}))
     
     def add_owner_form(self, card_id):
         current_user = AppUser.for_user(users.get_current_user())
         if current_user.is_admin:
-            template = JinjaEnv.get().get_template('templates/card_owner_add_form.html')
+            template = JinjaEnv.get().get_template('templates/card/owner_add_form.html')
             self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id)), 'users': AppUser.list()}))
         
     def add_owner(self, card_id):
