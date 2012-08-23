@@ -112,6 +112,10 @@ div.commentArea {
     margin-bottom: 0.5cm;
 }
 
+div.commentArea #comments {
+    width: 16cm;
+}
+
 p.sigLine {
     margin-top: 0.1cm;
     margin-bottom: 0;

@@ -82,5 +82,6 @@ app = webapp2.WSGIApplication([
     webapp2.Route(r'/key_level/<key_level_id:\d+>/delete_form', handler=KeyHandler, handler_method='delete_form'),
     webapp2.Route(r'/key_level/<key_level_id:\d+>/delete', handler=KeyHandler, handler_method='delete'),
     webapp2.Route(r'/eval/<eval_id:\d+>/fill', handler=EvalHandler, handler_method='fill'),
+    webapp2.Route(r'/eval/<eval_id:\d+>/save', handler=EvalHandler, handler_method='save'),
     webapp2.Route(r'/', handler=CardHandler, handler_method='main'),
 ], debug=True)

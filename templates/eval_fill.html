@@ -1,6 +1,6 @@
 {% extends "templates/shared/base.html" %}
 
-{% block title %}Evaluation for {{ eval.name }}}{% endblock %}
+{% block title %}Evaluation for {{ eval.name }}{% endblock %}
 
 {% block extra_css %}
 {% endblock %}
@@ -10,8 +10,11 @@
   
   <h1>Evaluation for {{ eval.name }}</h1>
   
+  <form action="/eval/{{ eval.key().id() }}/save" method="POST">
+  <fieldset>
+  
   {% for text_line in eval.card.text_lines() %}
-  <p class="textLine"><label for="text_{{text_line.position}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.position}}_value" name="text_{{text_line.position}}_value" value=""/></p>
+  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value=""/></p>
   {% endfor %}
   
   <p class="key">Key: 
@@ -39,13 +42,17 @@
   
   <div class="commentArea">
     <h2>Comments</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed magna at lacus sagittis mattis. Nunc porta gravida neque quis posuere. In mattis, est ultricies viverra dictum, odio lacus rhoncus arcu, quis iaculis erat arcu at arcu. Sed porttitor sagittis est. Morbi odio diam, tincidunt at condimentum molestie, sollicitudin et metus. Suspendisse potenti. Curabitur nec metus sed orci porta malesuada in vitae orci. Aenean accumsan, nibh pharetra aliquam pellentesque, erat ligula iaculis purus, quis pulvinar quam nibh nec mi. Fusce luctus scelerisque ipsum, ac euismod dui bibendum nec. Sed pulvinar congue justo non dictum. In quis ipsum vitae dui ullamcorper adipiscing. Curabitur vitae mauris vel eros fringilla rhoncus.
-    </p>
+    <textarea name="comments" id="comments"></textarea>
   </div>
   
   {% for signature in eval.card.signatures() %}
-  <p class="sigLine"><label for="sig_{{signature.position}}_value">{{signature.name}}</label> <input class="sign" type="text" id="sig_{{signature.position}}_value" name="sig_{{signature.position}}_value" value=""/><label for="sig_{{signature.position}}_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
+  <p class="sigLine"><label for="sig_{{signature.key().id()}}_value">{{signature.name}}</label> <input class="sign" type="text" id="sig_{{signature.key().id()}}_value" name="sig_{{signature.key().id()}}_value" value=""/><label for="sig_{{signature.key().id()}}_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
   {% endfor %}
+  
+  <input type="submit" name="save" value="Save and Close" />
+  
+  </fieldset>
+  </form>
   
   <a class="editDocButton" href="/card/{{ eval.card.key().id() }}/eval/list">Back to Student List</a>
 {% endblock %}

@@ -31,3 +31,10 @@ class EvalHandler(webapp2.RequestHandler):
         if eval.card.is_authorized():
             template = JinjaEnv.get().get_template('templates/eval_fill.html')
             self.response.out.write(template.render({'eval': eval}))
+    
+    def save(self, eval_id):
+        eval = Evaluation.find_by_id(int(eval_id))
+        if eval.card.is_authorized():
+            raise Exception(self.request)
+            template = JinjaEnv.get().get_template('templates/eval_fill.html')
+            self.response.out.write(template.render({'eval': eval}))
