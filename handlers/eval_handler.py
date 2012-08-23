@@ -5,6 +5,7 @@ from models.app_user import AppUser
 from models.report_card import ReportCard
 from models.evaluation import Evaluation
 from models.eval_item_data import EvalItemData
+from models.text_line_data import TextLineData
 from utils.jinja_env import JinjaEnv
 
 class EvalHandler(webapp2.RequestHandler):
@@ -41,6 +42,10 @@ class EvalHandler(webapp2.RequestHandler):
             for cat in eval.card.categories():
                 for item in cat.items():
                     val = self.request.get('item_%s_score' % item.key().id())
-                    if val:
+                    if val is not None:
                         EvalItemData.create_or_update(item.key().id(), int(eval_id), val)
+            for line in eval.card.text_lines():
+                val = self.request.get('text_%s_value' % line.key().id())
+                if val is not None:
+                    TextLineData.create_or_update(line.key().id(), int(eval_id), val)
             return webapp2.redirect_to('eval-fill', eval_id=int(eval_id))

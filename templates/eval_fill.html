@@ -14,7 +14,7 @@
   <fieldset>
   
   {% for text_line in eval.card.text_lines() %}
-  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value=""/></p>
+  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}"/></p>
   {% endfor %}
   
   <p class="key">Key: 
