@@ -14,13 +14,13 @@ class EvalHandler(webapp2.RequestHandler):
         # TODO: handle this some other way
         AppUser.record_access(users.get_current_user())
         current_user = AppUser.for_user(users.get_current_user())
-        template = JinjaEnv.get().get_template('templates/eval_list.html')
+        template = JinjaEnv.get().get_template('templates/eval/list.html')
         self.response.out.write(template.render({'card': ReportCard.find_by_id(int(card_id)), 'current_user': current_user}))
         
     def add_form(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            template = JinjaEnv.get().get_template('templates/eval_add.html')
+            template = JinjaEnv.get().get_template('templates/eval/add_form.html')
             self.response.out.write(template.render({'card': card}))
         
     def add(self, card_id):
@@ -33,7 +33,7 @@ class EvalHandler(webapp2.RequestHandler):
         eval = Evaluation.find_by_id(int(eval_id))
         if eval.card.is_authorized():
             # raise Exception(eval.all_data())
-            template = JinjaEnv.get().get_template('templates/eval_fill.html')
+            template = JinjaEnv.get().get_template('templates/eval/fill.html')
             self.response.out.write(template.render({'eval': eval, 'data': eval.all_data()}))
     
     def save(self, eval_id):
