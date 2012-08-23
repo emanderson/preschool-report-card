@@ -2,3 +2,4 @@
 omit = 
      /Applications/GoogleAppEngineLauncher.app/*
      /Library/Python/2.7/site-packages/WebTest-1.3.4-py2.7.egg/*
+     *_test.py
