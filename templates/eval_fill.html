@@ -42,7 +42,7 @@
   
   <div class="commentArea">
     <h2>Comments</h2>
-    <textarea name="comments" id="comments"></textarea>
+    <textarea name="comments" id="comments">{{ data['comments'] }}</textarea>
   </div>
   
   {% for signature in eval.card.signatures() %}

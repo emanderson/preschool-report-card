@@ -6,6 +6,7 @@ from models.report_card import ReportCard
 from models.evaluation import Evaluation
 from models.eval_item_data import EvalItemData
 from models.text_line_data import TextLineData
+from models.comment_data import CommentData
 from utils.jinja_env import JinjaEnv
 
 class EvalHandler(webapp2.RequestHandler):
@@ -48,4 +49,7 @@ class EvalHandler(webapp2.RequestHandler):
                 val = self.request.get('text_%s_value' % line.key().id())
                 if val is not None:
                     TextLineData.create_or_update(line.key().id(), int(eval_id), val)
+            val = self.request.get('comments')
+            if val is not None:
+                CommentData.create_or_update(int(eval_id), val)
             return webapp2.redirect_to('eval-fill', eval_id=int(eval_id))

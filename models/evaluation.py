@@ -25,7 +25,7 @@ class Evaluation(BaseModel):
         categories = self.card.categories()
         items = EvalItem.gql("WHERE category IN :1 ORDER BY position ASC", map(lambda i: i.key(), categories)).fetch(100)
         item_data = EvalItemData.gql("WHERE eval_item IN :1 AND evaluation = :2", map(lambda i: i.key(), items), self).fetch(100)
-        result = {'items':{}, 'text':{}}
+        result = {'items':{}, 'text':{}, 'comments':''}
         for item in items:
             result['items'][item.key().id()] = ''
         for item_datum in item_data:
@@ -39,4 +39,9 @@ class Evaluation(BaseModel):
             result['text'][line.key().id()] = ''
         for line_datum in line_data:
             result['text'][line_datum.text_line.key().id()] = line_datum.value
+        
+        from models.comment_data import CommentData
+        comment_data = CommentData.gql("WHERE evaluation = :1", self).fetch(100)
+        if len(comment_data) > 0:
+            result['comments'] = comment_data[0].value
         return result
