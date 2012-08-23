@@ -1,13 +1,13 @@
 <div class="formPopup">
     <h2>Edit Key</h2>
     <form method="POST" action="/key_level/{{ key_level.key().id() }}/edit">
-        <formset>
+        <fieldset>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="{{key_level.name}}" />
             <label for="name">Score:</label>
             <input type="text" id="score" name="score" value="{{key_level.score}}" />
             <input type="submit" id="add" name="edit" value="Edit" />
             <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </formset>
+        </fieldset>
     </form>
 </div>

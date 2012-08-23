@@ -2,9 +2,9 @@
     <h2>Remove this Signature?</h2>
     <form method="POST" action="/signature/{{ signature.key().id() }}/delete">
         <p>"{{ signature.name }}" will be removed from the report card.</p>
-        <formset>
+        <fieldset>
             <input type="submit" id="add" name="delete" value="Yes, Remove" />
             <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </formset>
+        </fieldset>
     </form>
 </div>

@@ -1,11 +1,11 @@
 <div class="formPopup">
     <h2>Add an Evaluation</h2>
     <form method="POST" action="/card/{{card.key().id()}}/eval/add">
-        <formset>
+        <fieldset>
             <label for="name">Student Name:</label>
             <input type="text" id="name" name="name" />
             <input type="submit" id="add" name="add" value="Add" />
             <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </formset>
+        </fieldset>
     </form>
 </div>
