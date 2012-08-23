@@ -39,7 +39,6 @@ class EvalHandler(webapp2.RequestHandler):
     def save(self, eval_id):
         eval = Evaluation.find_by_id(int(eval_id))
         if eval.card.is_authorized():
-            # raise Exception(self.request)
             for cat in eval.card.categories():
                 for item in cat.items():
                     val = self.request.get('item_%s_score' % item.key().id())
