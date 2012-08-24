@@ -1,3 +1,4 @@
 *.pyc
 .coverage
 coverage_report.txt
+chromedriver.log
