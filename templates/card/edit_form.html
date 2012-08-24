@@ -19,10 +19,10 @@
         <td class="editButtons">
               <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
                 <fieldset>
-                  <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                  <input class="editKey formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </fieldset>
               </form>
-              <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
+              <form class="deleteKey buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
                 <fieldset>
                   <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
                 </fieldset>
@@ -31,7 +31,7 @@
     </tr>
   {% endfor %}
   </table>
-  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a>
+  <a id="addKey" class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a>
   
   <h2>Edit Text Lines (Top of Form)</h2>
   <table>
@@ -39,22 +39,22 @@
     <tr>
         <td>{{ text_line.name }}</td>
         <td class="editButtons">
-              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
+              <form class="editText buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
                 <fieldset>
                   <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
                 </fieldset>
               </form>
-              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
+              <form class="deleteText buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
                 <fieldset>
                   <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove"  />
                 </fieldset>
               </form>
-              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
+              <form class="moveUpText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
                 <fieldset>
                   <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up"  />
                 </fieldset>
               </form>
-              <form class="buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
+              <form class="moveDownText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
                 <fieldset>
                   <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down"  />
                 </fieldset>
@@ -63,7 +63,7 @@
     </tr>
   {% endfor %}
   </table>
-  <a class="formPopper addItem" href="/card/{{ card.key().id() }}/text_line/add_form">Add a Text Line</a>
+  <a id="addText" class="formPopper addItem" href="/card/{{ card.key().id() }}/text_line/add_form">Add a Text Line</a>
   
   <h2>Edit Categories and Items</h2>
   
