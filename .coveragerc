@@ -1,6 +1,8 @@
 [report]
 omit = 
      /Applications/GoogleAppEngineLauncher.app/*
-     /Library/Python/2.7/site-packages/WebTest-1.3.4-py2.7.egg/*
+     /Library/Python/2.7/site-packages/*
      *_test.py
+     test/*
+     selenium_tests/*
      run_tests.py
