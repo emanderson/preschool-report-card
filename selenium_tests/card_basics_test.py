@@ -121,6 +121,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field.send_keys('Updated Signature')
         self.driver.find_element_by_id('edit').click()
         
+        # Preview
+        self.driver.find_element_by_id('previewButton').click()
+        
+        # Back to Edit
+        self.driver.find_element_by_id('editButton').click()
+        
         # Delete key
         self.driver.find_elements_by_class_name('deleteKey')[0].click()
         self.wait_for_id('delete').click()
