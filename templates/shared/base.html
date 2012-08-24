@@ -8,8 +8,8 @@
   </head>
   <body>
     <header>
-      <a href="/card/list">Card List</a>
-      <a href="{{ logout_url() }}">Logout</a>
+      <a id="cardList" href="/card/list">Card List</a>
+      <a id="logout" href="{{ logout_url() }}">Logout</a>
     </header>
     {% block body_content %}
     {% endblock %}

@@ -2,7 +2,7 @@ import time
 from test.selenium_test_case import SeleniumTestCase
 
 class CardBasicsTest(SeleniumTestCase):
-    def test_create_card(self):
+    def test_edit_card(self):
         self.login_user('cardbasics%d@example.com' % time.time())
         
         # Add a new card
@@ -152,6 +152,89 @@ class CardBasicsTest(SeleniumTestCase):
         self.wait_for_id('delete').click()
         self.driver.find_elements_by_class_name('deleteSignature')[0].click()
         self.wait_for_id('delete').click()
+
+    def test_fill_card(self):
+        self.login_user('cardbasics%d@example.com' % time.time())
         
-        time.sleep(3)
+        # Add a new card
+        self.driver.find_element_by_id('addCard').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('New Card')
+        self.driver.find_element_by_id('add').click()
+        
+        # Go to edit page
+        self.driver.find_elements_by_class_name('editCard')[0].click()
+        
+        # Add to key
+        self.driver.find_element_by_id('addKey').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('New Key')
+        score_field = self.driver.find_element_by_id('score')
+        score_field.send_keys('5')
+        self.driver.find_element_by_id('add').click()
+        
+        # Add text lines
+        self.driver.find_element_by_id('addText').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('First Text Line')
+        self.driver.find_element_by_id('add').click()
+        self.driver.find_element_by_id('addText').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('Second Text Line')
+        self.driver.find_element_by_id('add').click()
+        
+        # Add categories
+        self.driver.find_element_by_id('addCategory').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('First Category')
+        self.driver.find_element_by_id('add').click()
+        self.driver.find_element_by_id('addCategory').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('Second Category')
+        self.driver.find_element_by_id('add').click()
+        
+        # Add items
+        self.driver.find_elements_by_class_name('addEvalItem')[0].click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('First Item')
+        self.driver.find_element_by_id('add').click()
+        self.driver.find_elements_by_class_name('addEvalItem')[0].click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('Second Item')
+        self.driver.find_element_by_id('add').click()
+        self.driver.find_elements_by_class_name('addEvalItem')[1].click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('Third Item')
+        self.driver.find_element_by_id('add').click()
+        
+        # Add signatures
+        self.driver.find_element_by_id('addSignature').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('First Signature')
+        self.driver.find_element_by_id('add').click()
+        self.driver.find_element_by_id('addSignature').click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys('Second Signature')
+        self.driver.find_element_by_id('add').click()
+        
+        # Back to card list and to fill page
+        self.driver.find_element_by_id("cardList").click()
+        self.driver.find_elements_by_class_name("fillCard")[0].click()
+        
+        # Add a student
+        self.driver.find_element_by_id("addFill").click()
+        name_field = self.wait_for_id('name')
+        name_field.send_keys("Student")
+        self.driver.find_element_by_id('add').click()
+        
+        # Fill out for that student
+        self.driver.find_elements_by_class_name('fillOut')[0].click()
+        text_lines = self.driver.find_elements_by_class_name('textValue')
+        for line in text_lines:
+            line.send_keys('Some Text for a Line')
+        item_scores = self.driver.find_elements_by_class_name('itemScore')
+        for score in item_scores:
+            score.send_keys('5')
+        self.driver.find_element_by_id('comments').send_keys('Some interesting comments')
+        self.driver.find_element_by_id('save').click()
         

@@ -14,7 +14,7 @@
   <fieldset>
   
   {% for text_line in eval.card.text_lines() %}
-  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}"/></p>
+  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input class="textValue" type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}"/></p>
   {% endfor %}
   
   <p class="key">Key: 
@@ -33,7 +33,7 @@
         {% for item in category.items() %}
           <tr>
             <td class="itemName">{{ item.name }}</td>
-            <td><input type="text" name="item_{{ item.key().id() }}_score" value="{{ data['items'].get(item.key().id(), '') }}"/></td>
+            <td><input class="itemScore" type="text" name="item_{{ item.key().id() }}_score" value="{{ data['items'].get(item.key().id(), '') }}"/></td>
           </tr>
         {% endfor %}
       </table>
@@ -49,7 +49,7 @@
   <p class="sigLine"><label for="sig_{{signature.key().id()}}_value">{{signature.name}}</label> <input class="sign" type="text" id="sig_{{signature.key().id()}}_value" name="sig_{{signature.key().id()}}_value" value=""/><label for="sig_{{signature.key().id()}}_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
   {% endfor %}
   
-  <input type="submit" name="save" value="Save" />
+  <input id="save" type="submit" name="save" value="Save" />
   
   </fieldset>
   </form>
