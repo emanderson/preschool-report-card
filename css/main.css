@@ -248,8 +248,9 @@ div.mask {
 
 div.formPopup {
     position: fixed;
-    left: 20%;
-    width: 60%;
+    left: 50%;
+    width: 13cm;;
+    margin-left: -7.5cm;
     top: 20%;
     box-shadow: 2px 2px 5px;
     background: white;
@@ -259,10 +260,13 @@ div.formPopup {
 div.formPopup label {
     float: left;
     clear: left;
+    width: 2cm;
+    text-align: right;
+    padding-right: 0.2cm;
 }
 
 div.formPopup input[type=text] {
-    width: 10cm;
+    width: 8.5cm;
     float: left;
     clear: right;
 }
