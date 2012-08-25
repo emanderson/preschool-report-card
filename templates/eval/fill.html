@@ -2,57 +2,57 @@
 
 {% block title %}Evaluation for {{ eval.name }}{% endblock %}
 
-{% block extra_css %}
-{% endblock %}
-
 {% block body_content %}
-  <img class="headerImage" src="/images/gt_logo.gif" />
-  
-  <h1>Evaluation for {{ eval.name }}</h1>
-  
-  <form action="/eval/{{ eval.key().id() }}/save" method="POST">
-  <fieldset>
-  
-  {% for text_line in eval.card.text_lines() %}
-  <p class="textLine"><label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> <input class="textValue" type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}"/></p>
-  {% endfor %}
-  
-  <p class="key">Key: 
-  {% for key_level in eval.card.key_levels() %}
-    {{ key_level.name }} = {{key_level.score}}{% if not loop.last %},{% endif %}
-  {% endfor %}
-  </p>
-  
-  {% for category in eval.card.categories() %}
-    <div>
-      <table class="reportSection">
-        <tr class="titleHeader">
-          <th colspan=2>{{ category.name }}</td>
-        </tr>
-      
-        {% for item in category.items() %}
-          <tr>
-            <td class="itemName">{{ item.name }}</td>
-            <td><input class="itemScore" type="text" name="item_{{ item.key().id() }}_score" value="{{ data['items'].get(item.key().id(), '') }}"/></td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
-  {% endfor %}
-  
-  <div class="commentArea">
-    <h2>Comments</h2>
-    <textarea name="comments" id="comments">{{ data['comments'] }}</textarea>
-  </div>
-  
-  {% for signature in eval.card.signatures() %}
-  <p class="sigLine"><label for="sig_{{signature.key().id()}}_value">{{signature.name}}</label> <input class="sign" type="text" id="sig_{{signature.key().id()}}_value" name="sig_{{signature.key().id()}}_value" value=""/><label for="sig_{{signature.key().id()}}_date" class="date">Date</label> <input type="text" id="sig_1_date" name="sig_1_date" value=""/></p>
-  {% endfor %}
-  
-  <input id="save" type="submit" name="save" value="Save" />
-  
-  </fieldset>
-  </form>
-  
-  <a class="editDocButton" href="/card/{{ eval.card.key().id() }}/eval/list">Back to Student List</a>
+    <img class="headerImage" src="/images/gt_logo.gif" /> 
+    <h1>Evaluation for {{ eval.name }}</h1>
+    
+    <form action="/eval/{{ eval.key().id() }}/save" method="POST">
+        <fieldset>
+            {% for text_line in eval.card.text_lines() %} 
+                <p class="textLine">
+                    <label for="text_{{text_line.key().id()}}_value">{{text_line.name}}</label> 
+                    <input class="textValue" type="text" id="text_{{text_line.key().id()}}_value" name="text_{{text_line.key().id()}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}" />
+                </p>
+            {% endfor %} 
+            
+            <p class="key">
+                Key: {% for key_level in eval.card.key_levels() %} {{ key_level.name }} = {{key_level.score}}{% if not loop.last %},{% endif %} {% endfor %} 
+            </p>
+            
+            {% for category in eval.card.categories() %} 
+                <div>
+                    <table class="reportSection">
+                        <tr class="titleHeader">
+                            <th colspan="2">{{ category.name }}</td>
+                        </tr>
+                        {% for item in category.items() %} 
+                        <tr>
+                            <td class="itemName">{{ item.name }}</td>
+                            <td>
+                            <input class="itemScore" type="text" name="item_{{ item.key().id() }}_score" value="{{ data['items'].get(item.key().id(), '') }}" />
+                            </td>
+                        </tr>
+                        {% endfor %} 
+                    </table>
+                </div>
+            {% endfor %} 
+            
+            <div class="commentArea">
+                <h2>Comments</h2>
+                <textarea name="comments" id="comments">{{ data['comments'] }}</textarea> 
+            </div>
+            
+            {% for signature in eval.card.signatures() %} 
+                <p class="sigLine">
+                    <label for="sig_{{signature.key().id()}}_value">{{signature.name}}</label> 
+                    <input class="sign" type="text" id="sig_{{signature.key().id()}}_value" name="sig_{{signature.key().id()}}_value" value="" />
+                    <label for="sig_{{signature.key().id()}}_date" class="date">Date</label> 
+                    <input type="text" id="sig_1_date" name="sig_1_date" value="" />
+                </p>
+            {% endfor %} 
+            
+            <input id="save" type="submit" name="save" value="Save" />
+        </fieldset>
+    </form>
+    <a class="editDocButton" href="/card/{{ eval.card.key().id() }}/eval/list">Back to Student List</a>
 {% endblock %}
