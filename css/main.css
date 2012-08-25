@@ -241,8 +241,9 @@ div.formPopup {
     left: 20%;
     width: 60%;
     top: 20%;
-    border: 1px solid gray;
+    box-shadow: 2px 2px 5px;
     background: white;
+    border-radius: 5px;
 }
 
 div.formPopup input[type=text] {
@@ -250,10 +251,16 @@ div.formPopup input[type=text] {
 }
 
 div.formPopup h2 {
-    font-size: 0.4cm;
+    font-size: 0.35cm;
     text-decoration: none;
-    margin-left: 0.1cm;
-    margin-top: 0.2cm;
+    margin-top: 0;
+    padding-left: 0.1cm;
+    padding-top: 0.1cm;
+    padding-bottom: 0.1cm;
+    color: #ffffff;
+    background: #47a5f4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 div.formPopup form {
