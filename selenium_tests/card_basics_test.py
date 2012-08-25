@@ -63,10 +63,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Category')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addCategory').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Category')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Move categories up/down
         self.driver.find_elements_by_class_name('moveUpCategory')[1].click()
@@ -198,10 +200,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Category')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addCategory').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Category')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Add items
         self.driver.find_elements_by_class_name('addEvalItem')[0].click()

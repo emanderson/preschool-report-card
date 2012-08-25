@@ -1,0 +1,31 @@
+<table id="category{{ category.key().id() }}Editing" class="reportSection">
+    <tr class="titleHeader">
+        <th class="categoryName">{{ category.name }}</th>
+        <th> 
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/edit_form" method="GET">
+                <fieldset>
+                    <input class="editCategory formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                </fieldset>
+            </form>
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/delete_form" method="GET">
+                <fieldset>
+                    <input type="submit" class="deleteCategory formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                </fieldset>
+            </form>
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
+                <fieldset>
+                    <input type="submit" class="moveUpCategory moveUp" name="moveUp" value="Move Up" title="Move Up" />
+                </fieldset>
+            </form>
+            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
+                <fieldset>
+                    <input type="submit" class="moveDownCategory moveDown" name="moveDown" value="Move Down" title="Move Down" />
+                </fieldset>
+            </form>
+        </th>
+    </tr>
+    {% for item in category.items() %} 
+        {% include 'templates/item/edit_row.html' %}
+    {% endfor %} 
+</table>
+<a name="cat{{ category.key().id() }}add" class="addEvalItem addItem formPopper" href="/category/{{ category.key().id() }}/item/add_form">Add an item to {{ category.name }}</a> 

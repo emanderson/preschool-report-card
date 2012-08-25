@@ -27,7 +27,7 @@ var showPopup = function(data) {
 };
 
 $(document).ready(function() {
-    $(".formPopper").click(function() {
+    $("body").on('click', ".formPopper", function() {
         $.ajax({
             url: this.href,
             success: showPopup

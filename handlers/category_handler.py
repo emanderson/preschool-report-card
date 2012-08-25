@@ -14,8 +14,10 @@ class CategoryHandler(webapp2.RequestHandler):
     def add(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            EvalCategory.create(self.request.get('name'), int(card_id))
-            return webapp2.redirect_to('card-edit', card_id=card_id)
+            category_id = EvalCategory.create(self.request.get('name'), int(card_id)).id()
+            category = EvalCategory.find_by_id(category_id)
+            template = JinjaEnv.get().get_template('templates/category/edit_table.html')
+            self.response.out.write(template.render({'category': category}))
     
     def edit_form(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))
