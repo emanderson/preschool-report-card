@@ -143,12 +143,12 @@ p.sigLine input.sign {
     width: 7cm;
 }
 
-/* /images/pencil_add.png comes from http://www.fatcow.com/free-icons */
+/* /images/add.png comes from http://www.fatcow.com/free-icons */
 a.addItem {
     display: inline-block;
     height: 20px;
     padding-left: 18px;
-    background : url("/images/pencil_add.png") no-repeat 2px center;
+    background : url("/images/add.png") no-repeat 2px center;
     text-decoration: none;
     border: 1px solid black;
     border-radius: 4px;
@@ -302,9 +302,9 @@ input.editButton {
 	color : transparent;
 }
 
-/* /images/pencil_delete.png comes from http://www.fatcow.com/free-icons */
+/* /images/delete.png comes from http://www.fatcow.com/free-icons */
 input.deleteButton {
-    background : url("/images/pencil_delete.png") no-repeat center center;
+    background : url("/images/delete.png") no-repeat center center;
 	width : 16px;
 	height :16px;
 	border : none;
