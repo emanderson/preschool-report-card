@@ -1,11 +1,10 @@
-<div class="formPopup">
-    <h2>Edit Category</h2>
-    <form method="POST" action="/category/{{ category.key().id() }}/edit">
-        <fieldset>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{category.name}}" />
-            <input type="submit" id="edit" name="edit" value="Edit" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/edit_form.html" %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block action %}/category/{{ category.key().id() }}/edit{% endblock %}
+
+{% block inputs %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{category.name}}" />
+{% endblock %}

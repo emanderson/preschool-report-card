@@ -1,11 +1,10 @@
-<div class="formPopup">
-    <h2>Edit this Item</h2>
-    <form method="POST" action="/item/{{ item_id }}/edit">
-        <fieldset>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{ item.name }}" />
-            <input type="submit" id="edit" name="edit" value="Edit" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/edit_form.html" %}
+
+{% block title %}Edit this Item{% endblock %}
+
+{% block action %}/item/{{ item_id }}/edit{% endblock %}
+
+{% block inputs %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ item.name }}" />
+{% endblock %}
