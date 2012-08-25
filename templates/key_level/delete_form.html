@@ -1,10 +1,9 @@
-<div class="formPopup">
-    <h2>Remove this from the key?</h2>
-    <form method="POST" action="/key_level/{{ key_level.key().id() }}/delete">
-        <p>"{{ key_level.name }} = {{ key_level.score }}" will be removed from the report card key.</p>
-        <fieldset>
-            <input type="submit" id="delete" name="delete" value="Yes, Remove" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/delete_form.html" %}
+
+{% block title %}Remove this from the key?{% endblock %}
+
+{% block action %}/key_level/{{ key_level.key().id() }}/delete{% endblock %}
+
+{% block message %}
+    <p>"{{ key_level.name }} = {{ key_level.score }}" will be removed from the report card key.</p>
+{% endblock %}

@@ -1,10 +1,9 @@
-<div class="formPopup">
-    <h2>Remove this Text Line?</h2>
-    <form method="POST" action="/text_line/{{ text_line.key().id() }}/delete">
-        <p>"{{ text_line.name }}" will be removed from the report card.</p>
-        <fieldset>
-            <input type="submit" id="delete" name="delete" value="Yes, Remove" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/delete_form.html" %}
+
+{% block title %}Remove this Text Line?{% endblock %}
+
+{% block action %}/text_line/{{ text_line.key().id() }}/delete{% endblock %}
+
+{% block message %}
+    <p>"{{ text_line.name }}" will be removed from the report card.</p>
+{% endblock %}

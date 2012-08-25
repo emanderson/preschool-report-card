@@ -1,10 +1,9 @@
-<div class="formPopup">
-    <h2>Remove this Category?</h2>
-    <form method="POST" action="/category/{{ category.key().id() }}/delete">
-        <p>"{{ category.name }}" and all the items in it will be removed from the report card.</p>
-        <fieldset>
-            <input type="submit" id="delete" name="delete" value="Yes, Remove" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/delete_form.html" %}
+
+{% block title %}Remove this Category?{% endblock %}
+
+{% block action %}/category/{{ category.key().id() }}/delete{% endblock %}
+
+{% block message %}
+    <p>"{{ category.name }}" and all the items in it will be removed from the report card.</p>
+{% endblock %}

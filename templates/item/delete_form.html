@@ -1,10 +1,9 @@
-<div class="formPopup">
-    <h2>Remove this Item?</h2>
-    <form method="POST" action="/item/{{ item_id }}/delete">
-        <p>"{{ item.name }}" will be removed from the report card.</p>
-        <fieldset>
-            <input type="submit" id="delete" name="delete" value="Yes, Remove" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/delete_form.html" %}
+
+{% block title %}Remove this Item?{% endblock %}
+
+{% block action %}/item/{{ item_id }}/delete{% endblock %}
+
+{% block message %}
+    <p>"{{ item.name }}" will be removed from the report card.</p>
+{% endblock %}

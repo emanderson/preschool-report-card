@@ -1,0 +1,13 @@
+<div class="formPopup">
+    <h2>{% block title %}{% endblock %}</h2>
+    <form method="POST" action="{% block action %}{% endblock %}">
+        {% block message %}
+        {% endblock %}
+        <fieldset>
+            <div class="buttons">
+                <input type="submit" id="delete" name="delete" value="Yes, Remove" />
+                <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
+            </div>
+        </fieldset>
+    </form>
+</div>
