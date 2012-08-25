@@ -6,22 +6,22 @@
     <h1>Edit {{ card.name }}</h1>
     <div class="editing">
         <h2>Edit Key</h2>
-        <table>
+        <table class="reportSection">
             {% for key_level in card.key_levels() %} 
                 <tr>
-                    <td>{{ key_level.name }}</td>
-                    <td>{{ key_level.score }}</td>
+                    <td class="keyName">{{ key_level.name }}</td>
+                    <td class="keyScore">{{ key_level.score }}</td>
                     <td class="editButtons"> 
-                    <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
-                        <fieldset>
-                            <input class="editKey formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                        </fieldset>
-                    </form>
-                    <form class="deleteKey buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
-                        <fieldset>
-                            <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                        </fieldset>
-                    </form>
+                        <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
+                            <fieldset>
+                                <input class="editKey formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                            </fieldset>
+                        </form>
+                        <form class="deleteKey buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
+                            <fieldset>
+                                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                            </fieldset>
+                        </form>
                     </td>
                 </tr>
             {% endfor %} 
@@ -29,31 +29,31 @@
         <a id="addKey" class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a> 
         
         <h2>Edit Text Lines (Top of Form)</h2>
-        <table>
+        <table class="reportSection">
             {% for text_line in card.text_lines() %} 
                 <tr>
-                    <td>{{ text_line.name }}</td>
+                    <td class="itemName">{{ text_line.name }}</td>
                     <td class="editButtons"> 
-                    <form class="editText buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
-                        <fieldset>
-                            <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                        </fieldset>
-                    </form>
-                    <form class="deleteText buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
-                        <fieldset>
-                            <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                        </fieldset>
-                    </form>
-                    <form class="moveUpText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
-                        <fieldset>
-                            <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up" />
-                        </fieldset>
-                    </form>
-                    <form class="moveDownText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
-                        <fieldset>
-                            <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down" />
-                        </fieldset>
-                    </form>
+                        <form class="editText buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
+                            <fieldset>
+                                <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                            </fieldset>
+                        </form>
+                        <form class="deleteText buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
+                            <fieldset>
+                                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                            </fieldset>
+                        </form>
+                        <form class="moveUpText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
+                            <fieldset>
+                                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up" />
+                            </fieldset>
+                        </form>
+                        <form class="moveDownText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
+                            <fieldset>
+                                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down" />
+                            </fieldset>
+                        </form>
                     </td>
                 </tr>
             {% endfor %} 
@@ -67,52 +67,52 @@
                     <tr class="titleHeader">
                         <th class="categoryName">{{ category.name }}</th>
                         <th> 
-                        <form class="buttonForm" action="/category/{{ category.key().id() }}/edit_form" method="GET">
-                            <fieldset>
-                                <input class="editCategory formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                            </fieldset>
-                        </form>
-                        <form class="buttonForm" action="/category/{{ category.key().id() }}/delete_form" method="GET">
-                            <fieldset>
-                                <input type="submit" class="deleteCategory formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                            </fieldset>
-                        </form>
-                        <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
-                            <fieldset>
-                                <input type="submit" class="moveUpCategory moveUp" name="moveUp" value="Move Up" title="Move Up" />
-                            </fieldset>
-                        </form>
-                        <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
-                            <fieldset>
-                                <input type="submit" class="moveDownCategory moveDown" name="moveDown" value="Move Down" title="Move Down" />
-                            </fieldset>
-                        </form>
+                            <form class="buttonForm" action="/category/{{ category.key().id() }}/edit_form" method="GET">
+                                <fieldset>
+                                    <input class="editCategory formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                                </fieldset>
+                            </form>
+                            <form class="buttonForm" action="/category/{{ category.key().id() }}/delete_form" method="GET">
+                                <fieldset>
+                                    <input type="submit" class="deleteCategory formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                                </fieldset>
+                            </form>
+                            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
+                                <fieldset>
+                                    <input type="submit" class="moveUpCategory moveUp" name="moveUp" value="Move Up" title="Move Up" />
+                                </fieldset>
+                            </form>
+                            <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
+                                <fieldset>
+                                    <input type="submit" class="moveDownCategory moveDown" name="moveDown" value="Move Down" title="Move Down" />
+                                </fieldset>
+                            </form>
                         </th>
                     </tr>
                     {% for item in category.items() %} 
                         <tr>
                             <td class="itemName">{{ item.name }}</td>
                             <td class="editButtons"> 
-                            <form class="buttonForm" action="/item/{{ item.key().id() }}/edit_form" method="GET">
-                                <fieldset>
-                                    <input class="editItem formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                                </fieldset>
-                            </form>
-                            <form class="buttonForm" action="/item/{{ item.key().id() }}/delete_form" method="GET">
-                                <fieldset>
-                                    <input type="submit" class="deleteItem formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                                </fieldset>
-                            </form>
-                            <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
-                                <fieldset>
-                                    <input type="submit" class="moveUpItem moveUp" name="moveUp" value="Move Up" title="Move Up" />
-                                </fieldset>
-                            </form>
-                            <form class="buttonForm" action="/item/{{ item.key().id() }}/move_down" method="POST">
-                                <fieldset>
-                                    <input type="submit" class="moveDownItem moveDown" name="moveDown" value="Move Down" title="Move Down" />
-                                </fieldset>
-                            </form>
+                                <form class="buttonForm" action="/item/{{ item.key().id() }}/edit_form" method="GET">
+                                    <fieldset>
+                                        <input class="editItem formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                                    </fieldset>
+                                </form>
+                                <form class="buttonForm" action="/item/{{ item.key().id() }}/delete_form" method="GET">
+                                    <fieldset>
+                                        <input type="submit" class="deleteItem formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                                    </fieldset>
+                                </form>
+                                <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
+                                    <fieldset>
+                                        <input type="submit" class="moveUpItem moveUp" name="moveUp" value="Move Up" title="Move Up" />
+                                    </fieldset>
+                                </form>
+                                <form class="buttonForm" action="/item/{{ item.key().id() }}/move_down" method="POST">
+                                    <fieldset>
+                                        <input type="submit" class="moveDownItem moveDown" name="moveDown" value="Move Down" title="Move Down" />
+                                    </fieldset>
+                                </form>
                             </td>
                         </tr>
                     {% endfor %} 
@@ -123,31 +123,31 @@
         <a id="addCategory" class="formPopper addItem" href="/card/{{ card.key().id() }}/category/add_form">Add A Category</a> 
         
         <h2>Edit Signatures (Bottom of Form)</h2>
-        <table>
+        <table class="reportSection">
             {% for signature in card.signatures() %} 
                 <tr>
-                    <td>{{ signature.name }}</td>
+                    <td class="itemName">{{ signature.name }}</td>
                     <td class="editButtons"> 
-                    <form class="buttonForm" action="/signature/{{ signature.key().id() }}/edit_form" method="GET">
-                        <fieldset>
-                            <input class="editSignature formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                        </fieldset>
-                    </form>
-                    <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
-                        <fieldset>
-                            <input type="submit" class="deleteSignature formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                        </fieldset>
-                    </form>
-                    <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
-                        <fieldset>
-                            <input type="submit" class="moveUpSignature moveUp" name="moveUp" value="Move Up" title="Move Up" />
-                        </fieldset>
-                    </form>
-                    <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
-                        <fieldset>
-                            <input type="submit" class="moveDownSignature moveDown" name="moveDown" value="Move Down" title="Move Down" />
-                        </fieldset>
-                    </form>
+                        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/edit_form" method="GET">
+                            <fieldset>
+                                <input class="editSignature formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+                            </fieldset>
+                        </form>
+                        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
+                            <fieldset>
+                                <input type="submit" class="deleteSignature formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+                            </fieldset>
+                        </form>
+                        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
+                            <fieldset>
+                                <input type="submit" class="moveUpSignature moveUp" name="moveUp" value="Move Up" title="Move Up" />
+                            </fieldset>
+                        </form>
+                        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
+                            <fieldset>
+                                <input type="submit" class="moveDownSignature moveDown" name="moveDown" value="Move Down" title="Move Down" />
+                            </fieldset>
+                        </form>
                     </td>
                 </tr>
             {% endfor %} 

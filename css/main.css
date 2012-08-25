@@ -79,6 +79,16 @@ table.reportSection tr.titleHeader th.categoryName {
     text-decoration: underline;
 }
 
+table.reportSection td.keyName {
+    width: 12.3cm;
+    padding: 0 0.1cm;
+}
+
+table.reportSection td.keyScore {
+    width: 1.8cm;
+    padding: 0 0.1cm;
+}
+
 table.reportSection td.itemName {
     width: 14.3cm;
     padding: 0 0.1cm;
