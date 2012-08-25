@@ -6,30 +6,15 @@
     <h1>Edit {{ card.name }}</h1>
     <div class="editing">
         <h2>Edit Key</h2>
-        <table class="reportSection">
+        <table id="keyEditing" class="reportSection">
             {% for key_level in card.key_levels() %} 
-                <tr>
-                    <td class="keyName">{{ key_level.name }}</td>
-                    <td class="keyScore">{{ key_level.score }}</td>
-                    <td class="editButtons"> 
-                        <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
-                            <fieldset>
-                                <input class="editKey formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
-                            </fieldset>
-                        </form>
-                        <form class="deleteKey buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
-                            <fieldset>
-                                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
-                            </fieldset>
-                        </form>
-                    </td>
-                </tr>
+                {% include "templates/key_level/edit_row.html" %}
             {% endfor %} 
         </table>
         <a id="addKey" class="formPopper addItem" href="/card/{{ card.key().id() }}/key_level/add_form">Add To Key</a> 
         
         <h2>Edit Text Lines (Top of Form)</h2>
-        <table class="reportSection">
+        <table id="textLineEditing" class="reportSection">
             {% for text_line in card.text_lines() %} 
                 <tr>
                     <td class="itemName">{{ text_line.name }}</td>
@@ -63,7 +48,7 @@
         <h2>Edit Categories and Items</h2>
         {% for category in card.categories() %} 
             <div>
-                <table class="reportSection">
+                <table id="category{{ category.key().id() }}Editing" class="reportSection">
                     <tr class="titleHeader">
                         <th class="categoryName">{{ category.name }}</th>
                         <th> 
@@ -123,7 +108,7 @@
         <a id="addCategory" class="formPopper addItem" href="/card/{{ card.key().id() }}/category/add_form">Add A Category</a> 
         
         <h2>Edit Signatures (Bottom of Form)</h2>
-        <table class="reportSection">
+        <table id="signatureEditing" class="reportSection">
             {% for signature in card.signatures() %} 
                 <tr>
                     <td class="itemName">{{ signature.name }}</td>

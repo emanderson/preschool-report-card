@@ -1,0 +1,16 @@
+<tr>
+    <td class="keyName">{{ key_level.name }}</td>
+    <td class="keyScore">{{ key_level.score }}</td>
+    <td class="editButtons"> 
+        <form class="buttonForm" action="/key_level/{{ key_level.key().id() }}/edit_form" method="GET">
+            <fieldset>
+                <input class="editKey formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+            </fieldset>
+        </form>
+        <form class="deleteKey buttonForm" action="/key_level/{{ key_level.key().id() }}/delete_form" method="GET">
+            <fieldset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+            </fieldset>
+        </form>
+    </td>
+</tr>

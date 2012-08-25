@@ -21,6 +21,7 @@ class CardBasicsTest(SeleniumTestCase):
         score_field = self.driver.find_element_by_id('score')
         score_field.send_keys('5')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Edit key
         self.driver.find_elements_by_class_name('editKey')[0].click()
@@ -172,6 +173,7 @@ class CardBasicsTest(SeleniumTestCase):
         score_field = self.driver.find_element_by_id('score')
         score_field.send_keys('5')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Add text lines
         self.driver.find_element_by_id('addText').click()

@@ -14,7 +14,7 @@ class KeyLevelHandlerTest(HandlerTestCase):
     
     def test_add(self):
         response = self.testapp.get('/card/%d/key_level/add' % self.card_id, {'name': 'Add Test Name', 'score': 1})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.key_levels()))
         self.assertEqual('Add Test Name', card.key_levels()[0].name)

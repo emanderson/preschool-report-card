@@ -14,8 +14,10 @@ class KeyHandler(webapp2.RequestHandler):
     def add(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            EvalKeyLevel.create(self.request.get('name'), int(self.request.get('score')), int(card_id))
-            return webapp2.redirect_to('card-edit', card_id=card_id)
+            key_level_id = EvalKeyLevel.create(self.request.get('name'), int(self.request.get('score')), int(card_id)).id()
+            key_level = EvalKeyLevel.find_by_id(key_level_id)
+            template = JinjaEnv.get().get_template('templates/key_level/edit_row.html')
+            self.response.out.write(template.render({'key_level': key_level}))
     
     def edit_form(self, key_level_id):
         key_level = EvalKeyLevel.find_by_id(int(key_level_id))

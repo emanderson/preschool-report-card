@@ -24,3 +24,6 @@ class SeleniumTestCase(unittest.TestCase):
     def wait_for_id(self, id, max_wait=10):
         return WebDriverWait(self.driver, max_wait).until(lambda driver: driver.find_element_by_id(id))
     
+    def wait_for_removal(self, class_name, max_wait=10):
+        return WebDriverWait(self.driver, max_wait).until(lambda driver: len(driver.find_elements_by_class_name(class_name)) == 0)
+    
