@@ -159,33 +159,34 @@ a.editDocButton {
     height: 20px;
     padding-left: 18px;
     text-decoration: none;
-    border: 1px solid black;
     border-radius: 4px;
     margin-top: 5px;
     margin-bottom: 20px;
-    padding: 2px 5px 2px 20px;
+    padding: 2px 6px 2px 22px;
     font-size: 14px;
     line-height: 20px;
+    background: #47a5f4 none no-repeat 3px center;
+    color: #ffffff;
 }
 
 /* /images/add.png comes from http://www.fatcow.com/free-icons */
 a.addItem {
-    background: url("/images/add.png") no-repeat 2px center;
+    background-image: url("/images/add.png");
 }
 
 /* /images/pencil.png comes from http://www.fatcow.com/free-icons */
 a.editItem {
-    background: url("/images/pencil.png") no-repeat 2px center;
+    background-image: url("/images/pencil.png");
 }
 
 /* /images/document_layout.png comes from http://www.fatcow.com/free-icons */
 a.previewButton {
-    background: url("/images/document_layout.png") no-repeat 2px center;
+    background-image: url("/images/document_layout.png");
 }
 
 /* /images/document_prepare.png comes from http://www.fatcow.com/free-icons */
 a.editDocButton {
-    background: url("/images/document_prepare.png") no-repeat 2px center;
+    background-image: url("/images/document_prepare.png");
 }
 
 input.editButton,
@@ -223,6 +224,15 @@ input.moveDown {
 /* /images/arrow_up.png comes from http://www.fatcow.com/free-icons */
 input.moveUp {
     background: url("/images/arrow_up.png") no-repeat center center;
+}
+
+form.buttonForm {
+    display: inline-block;
+}
+
+form.buttonForm input {
+    width: 16px;
+    height: 16px;
 }
 
 /***** Popup editors *****/
@@ -265,13 +275,4 @@ div.formPopup h2 {
 
 div.formPopup form {
     margin: 0.2cm;
-}
-
-form.buttonForm {
-    display: inline-block;
-}
-
-form.buttonForm input {
-    width: 16px;
-    height: 16px;
 }
