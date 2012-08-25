@@ -256,8 +256,34 @@ div.formPopup {
     border-radius: 5px;
 }
 
+div.formPopup label {
+    float: left;
+    clear: left;
+}
+
 div.formPopup input[type=text] {
     width: 10cm;
+    float: left;
+    clear: right;
+}
+
+div.formPopup div.buttons {
+    float: left;
+    clear: left;
+    width: 100%;
+    text-align: right;
+}
+
+div.formPopup input[type=submit], 
+div.formPopup input[type=button] {
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    margin-top: 5px;
+    padding: 2px 6px 2px 6px;
+    font-size: 14px;
+    background: #47a5f4;
+    color: #ffffff;
 }
 
 div.formPopup h2 {

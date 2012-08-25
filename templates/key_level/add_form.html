@@ -1,13 +1,12 @@
-<div class="formPopup">
-    <h2>Add a level to the key</h2>
-    <form method="POST" action="/card/{{card_id}}/key_level/add">
-        <fieldset>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" />
-            <label for="score">Score:</label>
-            <input type="text" id="score" name="score" />
-            <input type="submit" id="add" name="add" value="Add" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/add_form.html" %}
+
+{% block title %}Add a level to the key{% endblock %}
+
+{% block action %}/card/{{card_id}}/key_level/add{% endblock %}
+
+{% block inputs %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <label for="score">Score:</label>
+    <input type="text" id="score" name="score" />
+{% endblock %}

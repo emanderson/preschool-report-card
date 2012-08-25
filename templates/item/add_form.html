@@ -1,11 +1,10 @@
-<div class="formPopup">
-    <h2>Add an Item</h2>
-    <form method="POST" action="/category/{{ category_id }}/item/add">
-        <fieldset>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" />
-            <input type="submit" id="add" name="add" value="Add" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/add_form.html" %}
+
+{% block title %}Add an Item{% endblock %}
+
+{% block action %}/category/{{ category_id }}/item/add{% endblock %}
+
+{% block inputs %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+{% endblock %}

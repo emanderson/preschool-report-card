@@ -1,11 +1,10 @@
-<div class="formPopup">
-    <h2>Add a Report Card</h2>
-    <form method="POST" action="/card/add">
-        <fieldset>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" />
-            <input type="submit" id="add" name="add" value="Add" />
-            <input type="button" class="closer" id="cancel" name="cancel" value="Cancel" />
-        </fieldset>
-    </form>
-</div>
+{% extends "templates/shared/add_form.html" %}
+
+{% block title %}Add a Report Card{% endblock %}
+
+{% block action %}/card/add{% endblock %}
+
+{% block inputs %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+{% endblock %}
