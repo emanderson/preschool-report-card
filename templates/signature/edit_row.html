@@ -1,0 +1,25 @@
+<tr>
+    <td class="itemName">{{ signature.name }}</td>
+    <td class="editButtons"> 
+        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/edit_form" method="GET">
+            <fieldset>
+                <input class="editSignature formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+            </fieldset>
+        </form>
+        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/delete_form" method="GET">
+            <fieldset>
+                <input type="submit" class="deleteSignature formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+            </fieldset>
+        </form>
+        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
+            <fieldset>
+                <input type="submit" class="moveUpSignature moveUp" name="moveUp" value="Move Up" title="Move Up" />
+            </fieldset>
+        </form>
+        <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
+            <fieldset>
+                <input type="submit" class="moveDownSignature moveDown" name="moveDown" value="Move Down" title="Move Down" />
+            </fieldset>
+        </form>
+    </td>
+</tr>

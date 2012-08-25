@@ -14,8 +14,10 @@ class TextLineHandler(webapp2.RequestHandler):
     def add(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            TextLine.create(self.request.get('name'), int(card_id))
-            return webapp2.redirect_to('card-edit', card_id=card_id)
+            text_line_id = TextLine.create(self.request.get('name'), int(card_id)).id()
+            text_line = TextLine.find_by_id(text_line_id)
+            template = JinjaEnv.get().get_template('templates/text_line/edit_row.html')
+            self.response.out.write(template.render({'text_line': text_line}))
     
     def edit_form(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))

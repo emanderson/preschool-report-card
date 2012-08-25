@@ -39,10 +39,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Text Line')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addText').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Text Line')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Move up/down
         self.driver.find_elements_by_class_name('moveUpText')[1].click()
@@ -83,10 +85,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Item')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('addEvalItem')[0].click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Item')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Move items up/down
         self.driver.find_elements_by_class_name('moveUpItem')[1].click()
@@ -105,10 +109,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Signature')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addSignature').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Signature')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Move signatures up/down
         self.driver.find_elements_by_class_name('moveUpSignature')[1].click()
@@ -180,10 +186,12 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Text Line')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addText').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Text Line')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Add categories
         self.driver.find_element_by_id('addCategory').click()
@@ -200,24 +208,29 @@ class CardBasicsTest(SeleniumTestCase):
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Item')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('addEvalItem')[0].click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Item')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('addEvalItem')[1].click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Third Item')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Add signatures
         self.driver.find_element_by_id('addSignature').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('First Signature')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         self.driver.find_element_by_id('addSignature').click()
         name_field = self.wait_for_id('name')
         name_field.send_keys('Second Signature')
         self.driver.find_element_by_id('add').click()
+        self.wait_for_removal('mask')
         
         # Back to card list and to fill page
         self.driver.find_element_by_id("cardList").click()

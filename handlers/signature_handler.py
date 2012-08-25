@@ -14,8 +14,10 @@ class SignatureHandler(webapp2.RequestHandler):
     def add(self, card_id):
         card = ReportCard.find_by_id(int(card_id))
         if card.is_authorized():
-            Signature.create(self.request.get('name'), int(card_id))
-            return webapp2.redirect_to('card-edit', card_id=card_id)
+            signature_id = Signature.create(self.request.get('name'), int(card_id)).id()
+            signature = Signature.find_by_id(signature_id)
+            template = JinjaEnv.get().get_template('templates/signature/edit_row.html')
+            self.response.out.write(template.render({'signature': signature}))
     
     def edit_form(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))

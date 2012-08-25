@@ -17,7 +17,7 @@ class ItemHandlerTest(HandlerTestCase):
     
     def test_add(self):
         response = self.testapp.get('/category/%d/item/add' % self.category_id, {'name': 'Add Test Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
         self.assertEqual(1, len(category.items()))
         self.assertEqual('Add Test Name', category.items()[0].name)

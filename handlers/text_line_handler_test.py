@@ -15,7 +15,7 @@ class TextLineHandlerTest(HandlerTestCase):
     
     def test_add(self):
         response = self.testapp.get('/card/%d/text_line/add' % self.card_id, {'name': 'Add Test Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.text_lines()))
         self.assertEqual('Add Test Name', card.text_lines()[0].name)

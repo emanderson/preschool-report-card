@@ -15,7 +15,7 @@ class SignatureHandlerTest(HandlerTestCase):
     
     def test_add(self):
         response = self.testapp.get('/card/%d/signature/add' % self.card_id, {'name': 'Add Test Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.signatures()))
         self.assertEqual('Add Test Name', card.signatures()[0].name)

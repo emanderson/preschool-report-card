@@ -14,8 +14,10 @@ class ItemHandler(webapp2.RequestHandler):
     def add(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))
         if category.card.is_authorized():
-            EvalItem.create(self.request.get('name'), int(category_id))
-            return webapp2.redirect_to('card-edit', card_id=category.card.key().id(), _fragment="cat%sadd" % category_id)
+            item_id = EvalItem.create(self.request.get('name'), int(category_id)).id()
+            item = EvalItem.find_by_id(item_id)
+            template = JinjaEnv.get().get_template('templates/item/edit_row.html')
+            self.response.out.write(template.render({'item': item}))
 
     def edit_form(self, item_id):
         item = EvalItem.find_by_id(int(item_id))

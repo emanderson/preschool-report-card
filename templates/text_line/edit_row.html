@@ -1,0 +1,25 @@
+<tr>
+    <td class="itemName">{{ text_line.name }}</td>
+    <td class="editButtons"> 
+        <form class="editText buttonForm" action="/text_line/{{ text_line.key().id() }}/edit_form" method="GET">
+            <fieldset>
+                <input class="formPopperButton editButton" type="submit" name="edit" value="Edit" title="Edit" />
+            </fieldset>
+        </form>
+        <form class="deleteText buttonForm" action="/text_line/{{ text_line.key().id() }}/delete_form" method="GET">
+            <fieldset>
+                <input type="submit" class="formPopperButton deleteButton" name="delete" value="Delete" title="Remove" />
+            </fieldset>
+        </form>
+        <form class="moveUpText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_up" method="POST">
+            <fieldset>
+                <input type="submit" class="moveUp" name="moveUp" value="Move Up" title="Move Up" />
+            </fieldset>
+        </form>
+        <form class="moveDownText buttonForm" action="/text_line/{{ text_line.key().id() }}/move_down" method="POST">
+            <fieldset>
+                <input type="submit" class="moveDown" name="moveDown" value="Move Down" title="Move Down" />
+            </fieldset>
+        </form>
+    </td>
+</tr>
