@@ -22,6 +22,7 @@ class SeleniumTestCase(unittest.TestCase):
         login_button.click()
     
     def wait_for_jquery(self, max_wait=10):
+        # Based on http://stackoverflow.com/a/7203819
         return WebDriverWait(self.driver, max_wait).until(lambda driver: driver.execute_script('return jQuery.active == 0'))
     
     def wait_for_id(self, id, max_wait=10):

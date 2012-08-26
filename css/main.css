@@ -278,6 +278,7 @@ div.formPopup div.buttons {
     text-align: right;
 }
 
+input[name=save],
 div.formPopup input[type=submit], 
 div.formPopup input[type=button] {
     text-decoration: none;
