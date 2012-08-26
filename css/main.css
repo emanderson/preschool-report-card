@@ -8,6 +8,11 @@ header {
     font-size: 0.3cm;
 }
 
+header a {
+    text-decoration: none;
+    color: #47a5f4;
+}
+
 h1 {
     font-size: 0.6cm;
     text-align: center;
