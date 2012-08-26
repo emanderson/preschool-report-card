@@ -9,6 +9,7 @@
         border: 1px solid black;
     }
     
+    header,
     a,
     a.editDocButton {
         display: none;
