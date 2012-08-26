@@ -32,7 +32,8 @@ class ItemHandler(webapp2.RequestHandler):
         if card.is_authorized():            
             item.name = self.request.get('name')
             item.save()
-            return webapp2.redirect_to('card-edit', card_id=item.category.card.key().id())
+            template = JinjaEnv.get().get_template('templates/item/edit_row.html')
+            self.response.out.write(template.render({'item': item}))
 
     def delete_form(self, item_id):
         item = EvalItem.find_by_id(int(item_id))
@@ -47,7 +48,6 @@ class ItemHandler(webapp2.RequestHandler):
         if card.is_authorized():            
             card_id = item.category.card.key().id()
             item.delete()
-            return webapp2.redirect_to('card-edit', card_id=card_id)
 
     def move_down(self, item_id):
         item = EvalItem.find_by_id(int(item_id))

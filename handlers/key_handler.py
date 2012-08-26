@@ -33,7 +33,8 @@ class KeyHandler(webapp2.RequestHandler):
             key_level.name = self.request.get('name')
             key_level.score = int(self.request.get('score'))
             key_level.save()
-            return webapp2.redirect_to('card-edit', card_id=key_level.card.key().id())
+            template = JinjaEnv.get().get_template('templates/key_level/edit_row.html')
+            self.response.out.write(template.render({'key_level': key_level}))
     
     def delete_form(self, key_level_id):
         key_level = EvalKeyLevel.find_by_id(int(key_level_id))
@@ -48,4 +49,3 @@ class KeyHandler(webapp2.RequestHandler):
         if card.is_authorized():
             card_id = key_level.card.key().id()
             key_level.delete()
-            return webapp2.redirect_to('card-edit', card_id=card_id)

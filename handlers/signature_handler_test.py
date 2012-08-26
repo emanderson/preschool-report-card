@@ -28,7 +28,7 @@ class SignatureHandlerTest(HandlerTestCase):
     def test_edit(self):
         signature_id = Signature.create('Edit Test Name', self.card_id).id()
         response = self.testapp.post('/signature/%d/edit' % signature_id, {'name': 'Edit Test New Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.signatures()))
         self.assertEqual('Edit Test New Name', card.signatures()[0].name)
@@ -41,7 +41,7 @@ class SignatureHandlerTest(HandlerTestCase):
     def test_delete(self):
         signature_id = Signature.create('Delete Test Name', self.card_id).id()
         response = self.testapp.post('/signature/%d/delete' % signature_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(0, len(card.signatures()))
     

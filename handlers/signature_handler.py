@@ -30,7 +30,8 @@ class SignatureHandler(webapp2.RequestHandler):
         if sig.card.is_authorized():
             sig.name = self.request.get('name')
             sig.save()
-            return webapp2.redirect_to('card-edit', card_id=sig.card.key().id())
+            template = JinjaEnv.get().get_template('templates/signature/edit_row.html')
+            self.response.out.write(template.render({'signature': sig}))
     
     def delete_form(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))
@@ -43,7 +44,6 @@ class SignatureHandler(webapp2.RequestHandler):
         if sig.card.is_authorized():
             card_id = sig.card.key().id()
             sig.delete()
-            return webapp2.redirect_to('card-edit', card_id=card_id)
     
     def move_down(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))

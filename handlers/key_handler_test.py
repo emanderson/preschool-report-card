@@ -28,7 +28,7 @@ class KeyLevelHandlerTest(HandlerTestCase):
     def test_edit(self):
         key_level_id = EvalKeyLevel.create('Edit Test Name', 1, self.card_id).id()
         response = self.testapp.post('/key_level/%d/edit' % key_level_id, {'name': 'Edit Test New Name', 'score': 2})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.key_levels()))
         self.assertEqual('Edit Test New Name', card.key_levels()[0].name)
@@ -42,6 +42,6 @@ class KeyLevelHandlerTest(HandlerTestCase):
     def test_delete(self):
         key_level_id = EvalKeyLevel.create('Delete Test Name', 1, self.card_id).id()
         response = self.testapp.post('/key_level/%d/delete' % key_level_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(0, len(card.key_levels()))

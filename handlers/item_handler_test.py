@@ -30,7 +30,7 @@ class ItemHandlerTest(HandlerTestCase):
     def test_edit(self):
         item_id = EvalItem.create('Edit Test Name', self.category_id).id()
         response = self.testapp.post('/item/%d/edit' % item_id, {'name': 'Edit Test New Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
         self.assertEqual(1, len(category.items()))
         self.assertEqual('Edit Test New Name', category.items()[0].name)
@@ -43,7 +43,7 @@ class ItemHandlerTest(HandlerTestCase):
     def test_delete(self):
         item_id = EvalItem.create('Delete Test Name', self.category_id).id()
         response = self.testapp.post('/item/%d/delete' % item_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
         self.assertEqual(0, len(category.items()))
     

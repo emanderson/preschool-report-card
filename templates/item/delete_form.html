@@ -6,4 +6,5 @@
 
 {% block message %}
     <p>"{{ item.name }}" will be removed from the report card.</p>
+    <input type="hidden" name="editingId" value="item{{ item.key().id() }}" />
 {% endblock %}

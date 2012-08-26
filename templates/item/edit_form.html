@@ -7,4 +7,5 @@
 {% block inputs %}
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{ item.name }}" />
+    <input type="hidden" name="editingId" value="item{{ item.key().id() }}" />
 {% endblock %}

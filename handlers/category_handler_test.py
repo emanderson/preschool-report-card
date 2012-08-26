@@ -28,7 +28,7 @@ class CategoryHandlerTest(HandlerTestCase):
     def test_edit(self):
         category_id = EvalCategory.create('Edit Test Name', self.card_id).id()
         response = self.testapp.post('/category/%d/edit' % category_id, {'name': 'Edit Test New Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.categories()))
         self.assertEqual('Edit Test New Name', card.categories()[0].name)
@@ -41,7 +41,7 @@ class CategoryHandlerTest(HandlerTestCase):
     def test_delete(self):
         category_id = EvalCategory.create('Delete Test Name', self.card_id).id()
         response = self.testapp.post('/category/%d/delete' % category_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(0, len(card.categories()))
     

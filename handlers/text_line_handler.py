@@ -30,7 +30,8 @@ class TextLineHandler(webapp2.RequestHandler):
         if text_line.card.is_authorized():
             text_line.name = self.request.get('name')
             text_line.save()
-            return webapp2.redirect_to('card-edit', card_id=text_line.card.key().id())
+            template = JinjaEnv.get().get_template('templates/text_line/edit_row.html')
+            self.response.out.write(template.render({'text_line': text_line}))
     
     def delete_form(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))
@@ -43,7 +44,6 @@ class TextLineHandler(webapp2.RequestHandler):
         if text_line.card.is_authorized():
             card_id = text_line.card.key().id()
             text_line.delete()
-            return webapp2.redirect_to('card-edit', card_id=card_id)
     
     def move_down(self, text_line_id):
         text_line = TextLine.find_by_id(int(text_line_id))

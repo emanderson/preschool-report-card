@@ -6,4 +6,5 @@
 
 {% block message %}
     <p>"{{ signature.name }}" will be removed from the report card.</p>
+    <input type="hidden" name="editingId" value="signature{{ signature.key().id() }}" />
 {% endblock %}

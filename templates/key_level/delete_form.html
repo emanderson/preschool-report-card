@@ -6,4 +6,5 @@
 
 {% block message %}
     <p>"{{ key_level.name }} = {{ key_level.score }}" will be removed from the report card key.</p>
+    <input type="hidden" name="editingId" value="keyLevel{{ key_level.key().id() }}" />
 {% endblock %}

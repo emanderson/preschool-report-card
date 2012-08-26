@@ -1,4 +1,4 @@
-<tr>
+<tr id="item{{ item.key().id() }}">
     <td class="itemName">{{ item.name }}</td>
     <td class="editButtons"> 
         <form class="buttonForm" action="/item/{{ item.key().id() }}/edit_form" method="GET">

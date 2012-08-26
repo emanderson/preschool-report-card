@@ -32,7 +32,8 @@ class CategoryHandler(webapp2.RequestHandler):
         if card.is_authorized():
             category.name = self.request.get('name')
             category.save()
-            return webapp2.redirect_to('card-edit', card_id=category.card.key().id())
+            template = JinjaEnv.get().get_template('templates/category/edit_table.html')
+            self.response.out.write(template.render({'category': category}))
     
     def delete_form(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))
@@ -48,7 +49,6 @@ class CategoryHandler(webapp2.RequestHandler):
             category = EvalCategory.find_by_id(int(category_id))
             card_id = category.card.key().id()
             category.delete()
-            return webapp2.redirect_to('card-edit', card_id=card_id)
     
     def move_down(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))

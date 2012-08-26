@@ -28,7 +28,7 @@ class TextLineHandlerTest(HandlerTestCase):
     def test_edit(self):
         text_line_id = TextLine.create('Edit Test Name', self.card_id).id()
         response = self.testapp.post('/text_line/%d/edit' % text_line_id, {'name': 'Edit Test New Name'})
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(1, len(card.text_lines()))
         self.assertEqual('Edit Test New Name', card.text_lines()[0].name)
@@ -41,7 +41,7 @@ class TextLineHandlerTest(HandlerTestCase):
     def test_delete(self):
         text_line_id = TextLine.create('Delete Test Name', self.card_id).id()
         response = self.testapp.post('/text_line/%d/delete' % text_line_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
         self.assertEqual(0, len(card.text_lines()))
     

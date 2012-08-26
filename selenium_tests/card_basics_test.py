@@ -33,6 +33,7 @@ class CardBasicsTest(SeleniumTestCase):
         score_field.clear()
         score_field.send_keys('2')
         self.driver.find_element_by_id('edit').click()
+        self.wait_for_removal('mask')
         
         # Add text lines
         self.driver.find_element_by_id('addText').click()
@@ -57,6 +58,7 @@ class CardBasicsTest(SeleniumTestCase):
         name_field.clear()
         name_field.send_keys('Updated Text')
         self.driver.find_element_by_id('edit').click()
+        self.wait_for_removal('mask')
         
         # Add categories
         self.driver.find_element_by_id('addCategory').click()
@@ -81,6 +83,7 @@ class CardBasicsTest(SeleniumTestCase):
         name_field.clear()
         name_field.send_keys('Updated Category')
         self.driver.find_element_by_id('edit').click()
+        self.wait_for_removal('mask')
         
         # Add items
         self.driver.find_elements_by_class_name('addEvalItem')[0].click()
@@ -105,6 +108,7 @@ class CardBasicsTest(SeleniumTestCase):
         name_field.clear()
         name_field.send_keys('Updated Item')
         self.driver.find_element_by_id('edit').click()
+        self.wait_for_removal('mask')
         
         # Add signatures
         self.driver.find_element_by_id('addSignature').click()
@@ -129,6 +133,7 @@ class CardBasicsTest(SeleniumTestCase):
         name_field.clear()
         name_field.send_keys('Updated Signature')
         self.driver.find_element_by_id('edit').click()
+        self.wait_for_removal('mask')
         
         # Preview
         self.driver.find_element_by_id('previewButton').click()
@@ -139,28 +144,36 @@ class CardBasicsTest(SeleniumTestCase):
         # Delete key
         self.driver.find_elements_by_class_name('deleteKey')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         
         # Delete text lines
         self.driver.find_elements_by_class_name('deleteText')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('deleteText')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         
         # Delete item
         self.driver.find_elements_by_class_name('deleteItem')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         
         # Delete categories
         self.driver.find_elements_by_class_name('deleteCategory')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('deleteCategory')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         
         # Delete signatures
         self.driver.find_elements_by_class_name('deleteSignature')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
         self.driver.find_elements_by_class_name('deleteSignature')[0].click()
         self.wait_for_id('delete').click()
+        self.wait_for_removal('mask')
 
     def test_fill_card(self):
         self.login_user('cardbasics%d@example.com' % time.time())

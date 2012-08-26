@@ -19,6 +19,38 @@ var showPopup = function(data) {
         return false;
     });
     
+    $(".formPopup").find("#edit").click(function() {
+        var form = $(this).parents('form');
+        var editingArea = '#' + form.find('[name=editingId]')[0].value;
+        $.ajax({
+            url: form[0].action,
+            type: 'POST',
+            data: form.serialize(),
+            success: function(row_html) {
+                $(editingArea).replaceWith(row_html);
+                $(".mask").remove();
+                $(".formPopup").remove();
+            }
+        });
+        return false;
+    });
+    
+    $(".formPopup").find("#delete").click(function() {
+        var form = $(this).parents('form');
+        var editingArea = '#' + form.find('[name=editingId]')[0].value;
+        $.ajax({
+            url: form[0].action,
+            type: 'POST',
+            data: form.serialize(),
+            success: function() {
+                $(editingArea).remove();
+                $(".mask").remove();
+                $(".formPopup").remove();
+            }
+        });
+        return false;
+    });
+    
     $(".formPopup").find(".closer").click(function() {
         $(".mask").remove();
         $(".formPopup").remove();
@@ -35,7 +67,7 @@ $(document).ready(function() {
         return false;
     });
     
-    $(".reportSection").on('click', ".formPopperButton", function() {
+    $("body").on('click', ".formPopperButton", function() {
         $.ajax({
             url: $(this).closest('form')[0].action,
             success: showPopup
