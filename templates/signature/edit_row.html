@@ -13,11 +13,13 @@
         </form>
         <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_up" method="POST">
             <fieldset>
+                <input type="hidden" name="editingId" value="signature{{ signature.key().id() }}" />
                 <input type="submit" class="moveUpSignature moveUp" name="moveUp" value="Move Up" title="Move Up" />
             </fieldset>
         </form>
         <form class="buttonForm" action="/signature/{{ signature.key().id() }}/move_down" method="POST">
             <fieldset>
+                <input type="hidden" name="editingId" value="signature{{ signature.key().id() }}" />
                 <input type="submit" class="moveDownSignature moveDown" name="moveDown" value="Move Down" title="Move Down" />
             </fieldset>
         </form>

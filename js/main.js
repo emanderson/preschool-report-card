@@ -74,4 +74,36 @@ $(document).ready(function() {
         });
         return false;
     });
+    
+    $("body").on('click', ".moveUp", function() {
+        var form = $(this).parents('form');
+        var editingArea = '#' + form.find('[name=editingId]')[0].value;
+        $.ajax({
+            url: form[0].action,
+            type: 'POST',
+            data: form.serialize(),
+            success: function() {
+                $(editingArea).prev().before($(editingArea));
+                $(".mask").remove();
+                $(".formPopup").remove();
+            }
+        });
+        return false;
+    });
+    
+    $("body").on('click', ".moveDown", function() {
+        var form = $(this).parents('form');
+        var editingArea = '#' + form.find('[name=editingId]')[0].value;
+        $.ajax({
+            url: form[0].action,
+            type: 'POST',
+            data: form.serialize(),
+            success: function() {
+                $(editingArea).next().after($(editingArea));
+                $(".mask").remove();
+                $(".formPopup").remove();
+            }
+        });
+        return false;
+    });
 });

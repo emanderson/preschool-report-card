@@ -62,7 +62,8 @@ class ItemHandler(webapp2.RequestHandler):
                 all_items[index+1].position = temp
                 item.save()
                 all_items[index+1].save()
-            return webapp2.redirect_to('card-edit', card_id=item.category.card.key().id())
+            else:
+                return webapp2.abort(403)
 
     def move_up(self, item_id):
         item = EvalItem.find_by_id(int(item_id))
@@ -77,4 +78,5 @@ class ItemHandler(webapp2.RequestHandler):
                 all_items[index-1].position = temp
                 item.save()
                 all_items[index-1].save()
-            return webapp2.redirect_to('card-edit', card_id=item.category.card.key().id())
+            else:
+                return webapp2.abort(403)

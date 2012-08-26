@@ -51,7 +51,7 @@ class ItemHandlerTest(HandlerTestCase):
         item1_id = EvalItem.create('Move Up Test Name 1', self.category_id).id()
         item2_id = EvalItem.create('Move Up Test Name 2', self.category_id).id()
         response = self.testapp.post('/item/%d/move_up' % item2_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
         items = category.items()
         self.assertEqual(2, len(items))
@@ -62,7 +62,7 @@ class ItemHandlerTest(HandlerTestCase):
         item1_id = EvalItem.create('Move Up Test Name 1', self.category_id).id()
         item2_id = EvalItem.create('Move Up Test Name 2', self.category_id).id()
         response = self.testapp.post('/item/%d/move_down' % item1_id)
-        self.assertRedirect('/card/%d/edit' % self.card_id, response)
+        self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
         items = category.items()
         self.assertEqual(2, len(items))

@@ -13,11 +13,13 @@
         </form>
         <form class="buttonForm" action="/item/{{ item.key().id() }}/move_up" method="POST">
             <fieldset>
+                <input type="hidden" name="editingId" value="item{{ item.key().id() }}" />
                 <input type="submit" class="moveUpItem moveUp" name="moveUp" value="Move Up" title="Move Up" />
             </fieldset>
         </form>
         <form class="buttonForm" action="/item/{{ item.key().id() }}/move_down" method="POST">
             <fieldset>
+                <input type="hidden" name="editingId" value="item{{ item.key().id() }}" />
                 <input type="submit" class="moveDownItem moveDown" name="moveDown" value="Move Down" title="Move Down" />
             </fieldset>
         </form>

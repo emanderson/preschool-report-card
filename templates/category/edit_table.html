@@ -15,11 +15,13 @@
                 </form>
                 <form class="buttonForm" action="/category/{{ category.key().id() }}/move_up" method="POST">
                     <fieldset>
+                        <input type="hidden" name="editingId" value="category{{ category.key().id() }}Editing" />
                         <input type="submit" class="moveUpCategory moveUp" name="moveUp" value="Move Up" title="Move Up" />
                     </fieldset>
                 </form>
                 <form class="buttonForm" action="/category/{{ category.key().id() }}/move_down" method="POST">
                     <fieldset>
+                        <input type="hidden" name="editingId" value="category{{ category.key().id() }}Editing" />
                         <input type="submit" class="moveDownCategory moveDown" name="moveDown" value="Move Down" title="Move Down" />
                     </fieldset>
                 </form>

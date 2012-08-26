@@ -49,7 +49,9 @@ class CardBasicsTest(SeleniumTestCase):
         
         # Move up/down
         self.driver.find_elements_by_class_name('moveUpText')[1].click()
+        self.wait_for_jquery()
         self.driver.find_elements_by_class_name('moveDownText')[0].click()
+        self.wait_for_jquery()
         
         # Edit text line
         self.driver.find_elements_by_class_name('editText')[0].click()
@@ -74,7 +76,9 @@ class CardBasicsTest(SeleniumTestCase):
         
         # Move categories up/down
         self.driver.find_elements_by_class_name('moveUpCategory')[1].click()
+        self.wait_for_jquery()
         self.driver.find_elements_by_class_name('moveDownCategory')[0].click()
+        self.wait_for_jquery()
         
         # Edit category
         self.driver.find_elements_by_class_name('editCategory')[0].click()
@@ -99,7 +103,9 @@ class CardBasicsTest(SeleniumTestCase):
         
         # Move items up/down
         self.driver.find_elements_by_class_name('moveUpItem')[1].click()
+        self.wait_for_jquery()
         self.driver.find_elements_by_class_name('moveDownItem')[0].click()
+        self.wait_for_jquery()
         
         # Edit item
         self.driver.find_elements_by_class_name('editItem')[0].click()
@@ -124,7 +130,9 @@ class CardBasicsTest(SeleniumTestCase):
         
         # Move signatures up/down
         self.driver.find_elements_by_class_name('moveUpSignature')[1].click()
+        self.wait_for_jquery()
         self.driver.find_elements_by_class_name('moveDownSignature')[0].click()
+        self.wait_for_jquery()
         
         # Edit signature
         self.driver.find_elements_by_class_name('editSignature')[0].click()

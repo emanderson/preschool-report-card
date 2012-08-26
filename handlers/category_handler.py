@@ -63,7 +63,8 @@ class CategoryHandler(webapp2.RequestHandler):
                 all_categories[index+1].position = temp
                 category.save()
                 all_categories[index+1].save()
-            return webapp2.redirect_to('card-edit', card_id=category.card.key().id())  
+            else:
+                return webapp2.abort(403)
     
     def move_up(self, category_id):
         category = EvalCategory.find_by_id(int(category_id))
@@ -78,4 +79,5 @@ class CategoryHandler(webapp2.RequestHandler):
                 all_categories[index-1].position = temp
                 category.save()
                 all_categories[index-1].save()
-            return webapp2.redirect_to('card-edit', card_id=category.card.key().id())
+            else:
+                return webapp2.abort(403)

@@ -57,7 +57,8 @@ class SignatureHandler(webapp2.RequestHandler):
                 all_sigs[index+1].position = temp
                 sig.save()
                 all_sigs[index+1].save()
-            return webapp2.redirect_to('card-edit', card_id=sig.card.key().id())  
+            else:
+                return webapp2.abort(403)
     
     def move_up(self, signature_id):
         sig = Signature.find_by_id(int(signature_id))
@@ -71,4 +72,5 @@ class SignatureHandler(webapp2.RequestHandler):
                 all_sigs[index-1].position = temp
                 sig.save()
                 all_sigs[index-1].save()
-            return webapp2.redirect_to('card-edit', card_id=sig.card.key().id())
+            else:
+                return webapp2.abort(403)
