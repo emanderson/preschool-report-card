@@ -51,7 +51,10 @@
                 </p>
             {% endfor %} 
             
-            <input id="save" type="submit" name="save" value="Save" />
+            <div class="buttonArea">
+                <input id="save" type="submit" name="save" value="Save" />
+            </div>
+            
             <a id="previewButton" class="previewButton" href="/eval/{{ eval.key().id() }}/preview">Preview Card</a> 
             <a class="editDocButton" href="/card/{{ eval.card.key().id() }}/eval/list">Back to Student List</a>
         </fieldset>

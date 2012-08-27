@@ -139,6 +139,14 @@ div.commentArea {
     margin-bottom: 0.5cm;
 }
 
+div.buttonArea {
+    margin-left: auto;
+    margin-right: auto;
+    width: 16cm;
+    text-align: right;
+    margin-top: 0.2cm;
+}
+
 div.commentArea #comments {
     width: 16cm;
 }
@@ -192,17 +200,19 @@ a.editDocButton {
 /* TODO: spacing is still not quite right on this compared to link buttons... */
 input[name=save] {
     display: inline-block;
-    height: 24px;
+    height: 20px;
     text-decoration: none;
     border: none;
     border-radius: 4px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 2px 6px 2px 6px;
     font-size: 14px;
     line-height: 20px;
-    background: #47a5f4 none no-repeat 3px center;
+    background: #47a5f4;
     color: #ffffff;
+    box-sizing: content-box;
+    font-family: Arial, Verdana, Helvetica, sans-serif; 
 }
 
 /* /images/add.png comes from http://www.fatcow.com/free-icons */
