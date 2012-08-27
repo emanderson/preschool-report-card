@@ -50,6 +50,7 @@ class ItemHandlerTest(HandlerTestCase):
     def test_move_up(self):
         item1_id = EvalItem.create('Move Up Test Name 1', self.category_id).id()
         item2_id = EvalItem.create('Move Up Test Name 2', self.category_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/item/%d/move_up' % item1_id)
         response = self.testapp.post('/item/%d/move_up' % item2_id)
         self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]
@@ -61,6 +62,7 @@ class ItemHandlerTest(HandlerTestCase):
     def test_move_down(self):
         item1_id = EvalItem.create('Move Up Test Name 1', self.category_id).id()
         item2_id = EvalItem.create('Move Up Test Name 2', self.category_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/item/%d/move_down' % item2_id)
         response = self.testapp.post('/item/%d/move_down' % item1_id)
         self.assertSuccess(response)
         category = ReportCard.find_by_id(self.card_id).categories()[0]

@@ -48,6 +48,7 @@ class SignatureHandlerTest(HandlerTestCase):
     def test_move_up(self):
         signature1_id = Signature.create('Move Up Test Name 1', self.card_id).id()
         signature2_id = Signature.create('Move Up Test Name 2', self.card_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/signature/%d/move_up' % signature1_id)
         response = self.testapp.post('/signature/%d/move_up' % signature2_id)
         self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
@@ -59,6 +60,7 @@ class SignatureHandlerTest(HandlerTestCase):
     def test_move_down(self):
         signature1_id = Signature.create('Move Up Test Name 1', self.card_id).id()
         signature2_id = Signature.create('Move Up Test Name 2', self.card_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/signature/%d/move_down' % signature2_id)
         response = self.testapp.post('/signature/%d/move_down' % signature1_id)
         self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)

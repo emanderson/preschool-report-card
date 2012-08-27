@@ -32,6 +32,18 @@ class EvalHandlerTest(HandlerTestCase):
         response = self.testapp.get('/eval/%d/fill' % e.id())
         self.assertSuccess(response)
     
+    def test_preview(self):
+        e = Evaluation.create('Preview Test Name', self.card_id)
+        category1_id = EvalCategory.create('Eval Preview Test Cat 1', self.card_id).id()
+        category2_id = EvalCategory.create('Eval Preview Test Cat 2', self.card_id).id()
+        item1_id = EvalItem.create('Eval Preview Test Item 1', category1_id).id()
+        item2_id = EvalItem.create('Eval Preview Test Item 2', category1_id).id()
+        item3_id = EvalItem.create('Eval Preview Test Item 3', category2_id).id()
+        text_line1_id = TextLine.create('Eval Preview Test Text Line 1', self.card_id).id()
+        text_line2_id = TextLine.create('Eval Preview Test Text Line 2', self.card_id).id()
+        response = self.testapp.get('/eval/%d/preview' % e.id())
+        self.assertSuccess(response)
+    
     def test_save(self):
         eval_id = Evaluation.create('Edit Test Name', self.card_id).id()
         category1_id = EvalCategory.create('Eval Save Test Cat 1', self.card_id).id()

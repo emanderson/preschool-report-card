@@ -48,6 +48,7 @@ class TextLineHandlerTest(HandlerTestCase):
     def test_move_up(self):
         text_line1_id = TextLine.create('Move Up Test Name 1', self.card_id).id()
         text_line2_id = TextLine.create('Move Up Test Name 2', self.card_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/text_line/%d/move_up' % text_line1_id)
         response = self.testapp.post('/text_line/%d/move_up' % text_line2_id)
         self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
@@ -59,6 +60,7 @@ class TextLineHandlerTest(HandlerTestCase):
     def test_move_down(self):
         text_line1_id = TextLine.create('Move Up Test Name 1', self.card_id).id()
         text_line2_id = TextLine.create('Move Up Test Name 2', self.card_id).id()
+        self.assertRaises(Exception, self.testapp.post, '/text_line/%d/move_down' % text_line2_id)
         response = self.testapp.post('/text_line/%d/move_down' % text_line1_id)
         self.assertSuccess(response)
         card = ReportCard.find_by_id(self.card_id)
