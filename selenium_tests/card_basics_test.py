@@ -278,3 +278,7 @@ class CardBasicsTest(SeleniumTestCase):
         self.driver.find_element_by_id('comments').send_keys('Some interesting comments')
         self.driver.find_element_by_id('save').click()
         
+        self.driver.find_element_by_id('previewButton').click()
+        
+        time.sleep(5)
+        
