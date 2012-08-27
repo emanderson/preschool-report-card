@@ -1,0 +1,55 @@
+{% extends "templates/shared/base.html" %}
+
+{% block title %}{{ eval.card.name }} Preview{% endblock %}
+
+{% block body_content %} 
+    <img class="headerImage" src="/images/gt_logo.gif" /> 
+    <h1>{{ eval.card.name }}</h1>
+    
+    {% for text_line in eval.card.text_lines() %} 
+        <p class="textLine">
+            <label for="text_{{text_line.position}}_value">{{text_line.name}}</label> 
+            <input type="text" id="text_{{text_line.position}}_value" name="text_{{text_line.position}}_value" value="{{ data['text'].get(text_line.key().id(), '') }}" />
+        </p>
+    {% endfor %}
+    
+    <p class="key">
+        Key: {% for key_level in eval.card.key_levels() %} {{ key_level.name }} = {{key_level.score}}{% if not loop.last %},{% endif %} {% endfor %} 
+    </p>
+    
+    {% for category in eval.card.categories() %} 
+        <div>
+            <table class="reportSection">
+                <tr class="titleHeader">
+                    <th colspan="2">{{ category.name }}</td>
+                </tr>
+                {% for item in category.items() %} 
+                <tr>
+                    <td class="itemName">{{ item.name }}</td>
+                    <td>
+                    <input type="text" name="item_{{ item.key().id() }}_score" value="{{ data['items'].get(item.key().id(), '') }}" />
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+    
+    <div class="commentArea">
+        <h2>Comments</h2>
+        <p>
+            {{ data['comments'] }}
+        </p>
+    </div>
+    
+    {% for signature in eval.card.signatures() %}
+        <p class="sigLine">
+            <label for="sig_{{signature.position}}_value">{{signature.name}}</label> 
+            <input class="sign" type="text" id="sig_{{signature.position}}_value" name="sig_{{signature.position}}_value" value="" />
+            <label for="sig_{{signature.position}}_date" class="date">Date</label> 
+            <input type="text" id="sig_1_date" name="sig_1_date" value="" />
+        </p>
+    {% endfor %}
+    
+    <a id="editButton" class="editDocButton" href="/eval/{{ eval.key().id() }}/fill">Back to Fill Out</a> 
+{% endblock %}
