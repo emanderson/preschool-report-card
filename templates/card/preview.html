@@ -50,6 +50,8 @@
             <input type="text" id="sig_1_date" name="sig_1_date" value="" />
         </p>
     {% endfor %}
-    
-    <a id="editButton" class="editDocButton" href="/card/{{ card.key().id() }}/edit">Edit the Report Card</a> 
+{% endblock %}
+
+{% block footer_content %}
+    <a id="editButton" href="/card/{{ card.key().id() }}/edit">Edit the Report Card</a>
 {% endblock %}

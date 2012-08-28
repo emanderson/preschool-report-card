@@ -1,12 +1,26 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
     font-family: Arial, Verdana, Helvetica, sans-serif;
     font-size: 0.4cm;
     padding: 0;
+    margin: 0;
+    height: 100%;
 }
 
 .bodyContent {
     padding-left: 0.5cm;
     padding-right: 0.5cm;
+    padding-bottom: 30px;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
 }
 
 header {
@@ -24,9 +38,28 @@ header div {
     display: inline-block;
 }
 
+footer a,
 header a {
     text-decoration: none;
     color: #ffffff;
+}
+
+footer {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer div {
+    font-size: 0.3cm;
+    padding-top: 0.25cm;
+    padding-bottom: 0.25cm;
+    padding-right: 30px;
+    padding-left: 25px;
+    border-top-right-radius: 30px;
+    background: #47a5f4;
+    display: inline-block;
 }
 
 h1 {

@@ -36,7 +36,9 @@
             {% endfor %} 
         </table>
         <a id="addSignature" class="formPopper addItem" href="/card/{{ card.key().id() }}/signature/add_form">Add a Signature</a> <br />
-        
-        <a id="previewButton" class="previewButton" href="/card/{{ card.key().id() }}/preview">Preview the Report Card</a> 
     </div>
+{% endblock %}
+
+{% block footer_content %}
+    <a id="previewButton" href="/card/{{ card.key().id() }}/preview">Preview the Report Card</a>
 {% endblock %}

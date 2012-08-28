@@ -280,5 +280,3 @@ class CardBasicsTest(SeleniumTestCase):
         
         self.driver.find_element_by_id('previewButton').click()
         
-        time.sleep(5)
-        

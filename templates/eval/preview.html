@@ -51,5 +51,8 @@
         </p>
     {% endfor %}
     
-    <a id="editButton" class="editDocButton" href="/eval/{{ eval.key().id() }}/fill">Back to Fill Out</a> 
+{% endblock %}
+
+{% block footer_content %}
+    <a id="editButton" href="/eval/{{ eval.key().id() }}/fill">Back to Fill Out</a> 
 {% endblock %}
