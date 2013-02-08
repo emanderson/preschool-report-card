@@ -4,6 +4,8 @@ from google.appengine.api import users
 from models.base import BaseModel
 from models.report_card import ReportCard
 
+MAX_IN_QUERY = 30
+
 class Evaluation(BaseModel):
     name = db.StringProperty()
     card = db.ReferenceProperty(ReportCard)
@@ -24,7 +26,9 @@ class Evaluation(BaseModel):
         from models.eval_item_data import EvalItemData
         categories = self.card.categories()
         items = EvalItem.gql("WHERE category IN :1 ORDER BY position ASC", map(lambda i: i.key(), categories)).fetch(100)
-        item_data = EvalItemData.gql("WHERE eval_item IN :1 AND evaluation = :2", map(lambda i: i.key(), items), self).fetch(100)
+        item_data = []
+        for item_sublist in [items[i:i+MAX_IN_QUERY] for i in xrange(0, len(items), MAX_IN_QUERY)]:
+            item_data.extend(EvalItemData.gql("WHERE eval_item IN :1 AND evaluation = :2", map(lambda i: i.key(), item_sublist), self).fetch(100))
         result = {'items':{}, 'text':{}, 'comments':''}
         for item in items:
             result['items'][item.key().id()] = ''
