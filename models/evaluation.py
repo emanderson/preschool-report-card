@@ -25,7 +25,9 @@ class Evaluation(BaseModel):
         from models.eval_item import EvalItem
         from models.eval_item_data import EvalItemData
         categories = self.card.categories()
-        items = EvalItem.gql("WHERE category IN :1 ORDER BY position ASC", map(lambda i: i.key(), categories)).fetch(100)
+        items = []
+        for category_sublist in [categories[i:i+MAX_IN_QUERY] for i in xrange(0, len(categories), MAX_IN_QUERY)]:
+            items.extend(EvalItem.gql("WHERE category IN :1 ORDER BY position ASC", map(lambda i: i.key(), category_sublist)).fetch(100))
         item_data = []
         for item_sublist in [items[i:i+MAX_IN_QUERY] for i in xrange(0, len(items), MAX_IN_QUERY)]:
             item_data.extend(EvalItemData.gql("WHERE eval_item IN :1 AND evaluation = :2", map(lambda i: i.key(), item_sublist), self).fetch(100))
@@ -38,7 +40,9 @@ class Evaluation(BaseModel):
         from models.text_line import TextLine
         from models.text_line_data import TextLineData
         lines = self.card.text_lines()
-        line_data = TextLineData.gql("WHERE text_line IN :1 AND evaluation = :2", map(lambda i: i.key(), lines), self).fetch(100)
+        line_data = []
+        for line_sublist in [lines[i:i+MAX_IN_QUERY] for i in xrange(0, len(lines), MAX_IN_QUERY)]:
+            line_data.extend(TextLineData.gql("WHERE text_line IN :1 AND evaluation = :2", map(lambda i: i.key(), line_sublist), self).fetch(100))
         for line in lines:
             result['text'][line.key().id()] = ''
         for line_datum in line_data:
