@@ -33,7 +33,8 @@ class Evaluation(BaseModel):
             item_data.extend(EvalItemData.gql("WHERE eval_item IN :1 AND evaluation = :2", map(lambda i: i.key(), item_sublist), self).fetch(100))
         result = {'items':{}, 'text':{}, 'comments':''}
         for item in items:
-            result['items'][item.key().id()] = ''
+            # TODO: base default score on top grade, or allow card owner to set
+            result['items'][item.key().id()] = '5'
         for item_datum in item_data:
             result['items'][item_datum.eval_item.key().id()] = item_datum.value
         
