@@ -99,6 +99,7 @@ p.textLine input {
     border: none;
     border-bottom: 1px solid black;
     width: 10cm;
+    /* font-family: 'Handlee', cursive; */
 }
 
 p.key {
@@ -158,6 +159,7 @@ table.reportSection input {
     text-align: center;
     font-size: 0.4cm;
     padding: 0;
+    /* font-family: 'Handlee', cursive; */
 }
 
 table.reportSection td {
@@ -172,6 +174,10 @@ div.commentArea {
     margin-bottom: 0.5cm;
 }
 
+div.commentArea p {
+    /* font-family: 'Handlee', cursive; */
+}
+
 div.buttonArea {
     margin-left: auto;
     margin-right: auto;
@@ -182,6 +188,7 @@ div.buttonArea {
 
 div.commentArea #comments {
     width: 16cm;
+    /* font-family: 'Handlee', cursive; */
 }
 
 p.sigLine {
@@ -205,6 +212,7 @@ p.sigLine input {
     border: none;
     border-bottom: 1px solid black;
     width: 3cm;
+    /* font-family: 'Handlee', cursive; */
 }
 
 p.sigLine input.sign {

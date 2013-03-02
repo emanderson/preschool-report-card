@@ -5,7 +5,7 @@ from models.evaluation import Evaluation
 
 class CommentData(BaseModel):
     evaluation = db.ReferenceProperty(Evaluation)
-    value = db.StringProperty()
+    value = db.TextProperty()
     created = db.DateTimeProperty(auto_now_add=True)
     modified = db.DateTimeProperty(auto_now=True)
     

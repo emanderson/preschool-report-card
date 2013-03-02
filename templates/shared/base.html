@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="/css/main.css" type="text/css" />
         <link rel="stylesheet" href="/css/print.css" type="text/css" />
         
+        <!-- <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'> -->
+        
         {% block extra_css %}
         {% endblock %} 
         
@@ -15,7 +17,7 @@
             <header> 
                 <div>
                     Menu: 
-                    <a id="cardList" href="/card/list">Card List</a>
+                    <a id="cardList" href="/card/list">Home</a>
                     &middot;
                     <a id="logout" href="{{ logout_url() }}">Logout</a> 
                 </div>
@@ -30,7 +32,7 @@
                 <div>
                     Go to:
                     {% block footer_content %}
-                        <a id="cardList" href="/card/list">Card List</a>
+                        <a id="cardList" href="/card/list">Home</a>
                     {% endblock %}
                 </div>
             </footer>
